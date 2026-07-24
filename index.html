@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sekreter Büro — Tercüme Hizmetleri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0D1B3E;
+      --navy-mid:   #162347;
+      --navy-light: #1E3060;
+      --gold:       #C4972A;
+      --gold-light: #D4A843;
+      --cream:      #F7F4EF;
+      --white:      #FFFFFF;
+      --charcoal:   #1C1C1C;
+      --gray:       #6B7280;
+      --border:     #E5E7EB;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ─── LANGUAGE SYSTEM ─── */
+    [data-lang]           { display: none !important; }
+    [data-lang="tr"]      { display: revert !important; }
+    span[data-lang="tr"]  { display: inline !important; }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(13,27,62,0.97);
+      backdrop-filter: blur(12px);
+      padding: 0 48px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(196,151,42,0.2);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-switcher {
+      display: flex; gap: 3px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 3px;
+    }
+    .lang-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px; font-weight: 600;
+      padding: 5px 10px; border-radius: 4px;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: all 0.18s; letter-spacing: 0.04em;
+    }
+    .lang-btn.active { background: var(--gold); color: var(--navy); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      padding: 10px 22px; border-radius: 6px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none; transition: background 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 130px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 55% at 72% 52%, rgba(196,151,42,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 70% at 8%  85%, rgba(30,48,96,0.7)    0%, transparent 50%);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--gold); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px; font-weight: 700;
+      color: var(--white); line-height: 1.1;
+      margin-bottom: 22px;
+    }
+    .hero-title em { color: var(--gold); font-style: normal; }
+    .hero-sub {
+      font-size: 16px; color: rgba(255,255,255,0.68);
+      line-height: 1.75; margin-bottom: 38px; max-width: 460px;
+    }
+    .hero-actions { display: flex; gap: 18px; align-items: center; }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; display: inline-flex;
+      align-items: center; gap: 8px; transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-ghost {
+      color: rgba(255,255,255,0.75); font-size: 14px;
+      font-weight: 500; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--gold); }
+
+    /* Hero right: stat cards + badge */
+    .hero-right { display: flex; flex-direction: column; gap: 14px; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 26px 22px;
+    }
+    .stat-card:first-child {
+      background: rgba(196,151,42,0.11);
+      border-color: rgba(196,151,42,0.25);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 700;
+      color: var(--white); line-height: 1;
+      margin-bottom: 5px;
+    }
+    .stat-num sup { color: var(--gold); font-size: 22px; vertical-align: super; }
+    .stat-lbl { font-size: 12px; color: rgba(255,255,255,0.55); font-weight: 500; letter-spacing: 0.02em; }
+    .conf-badge {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px; padding: 18px 22px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .conf-badge-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(196,151,42,0.14);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .conf-badge-text strong {
+      display: block; color: var(--white);
+      font-size: 14px; margin-bottom: 3px;
+    }
+    .conf-badge-text span { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.5; }
+
+    /* ─── TRUST BAR ─── */
+    #trust-bar {
+      background: var(--cream);
+      padding: 36px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 0; text-align: center;
+    }
+    .trust-item { padding: 8px 16px; position: relative; }
+    .trust-item:not(:last-child)::after {
+      content: ''; position: absolute;
+      right: 0; top: 20%; height: 60%; width: 1px;
+      background: var(--border);
+    }
+    .trust-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px; font-weight: 700;
+      color: var(--navy); line-height: 1; margin-bottom: 5px;
+    }
+    .trust-num sup { color: var(--gold); font-size: 18px; }
+    .trust-lbl {
+      font-size: 12px; color: var(--gray);
+      font-weight: 500; text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 96px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .section-tag::before { content: '•'; font-size: 20px; line-height: 0.8; }
+    h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px; font-weight: 700;
+      color: var(--navy); line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    h2.section-title em { color: var(--gold); font-style: normal; }
+    .section-sub {
+      font-size: 16px; color: var(--gray);
+      line-height: 1.7; max-width: 540px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .about-body p {
+      font-size: 15.5px; color: #444;
+      line-height: 1.8; margin-bottom: 18px;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body strong { color: var(--navy); }
+    .founder-quote {
+      border-left: 3px solid var(--gold);
+      background: var(--cream);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px; margin: 28px 0;
+    }
+    .founder-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-style: italic;
+      color: var(--navy); line-height: 1.6; margin: 0;
+    }
+    .founder-quote cite {
+      display: block; margin-top: 10px;
+      font-size: 12px; color: var(--gray); font-style: normal;
+    }
+    .value-stack { display: flex; flex-direction: column; gap: 16px; }
+    .value-card {
+      background: var(--cream); border-radius: 12px;
+      padding: 22px 24px; border-left: 4px solid var(--gold);
+    }
+    .value-card h4 {
+      font-size: 15px; font-weight: 600;
+      color: var(--navy); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .value-card p { font-size: 13.5px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--cream); }
+    .services-top {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: end; margin-bottom: 40px;
+    }
+    .tab-row {
+      display: flex; gap: 4px;
+      background: rgba(13,27,62,0.07);
+      border-radius: 8px; padding: 4px;
+      width: fit-content; margin-bottom: 40px;
+    }
+    .tab-btn {
+      background: none; border: none;
+      padding: 10px 20px; border-radius: 6px;
+      font-size: 13.5px; font-weight: 500;
+      color: var(--gray); cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.18s; white-space: nowrap;
+    }
+    .tab-btn.active { background: var(--navy); color: var(--white); font-weight: 600; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .svc-card {
+      background: var(--white); border-radius: 14px;
+      padding: 28px; border: 1px solid var(--border);
+      transition: all 0.22s;
+    }
+    .svc-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 6px 28px rgba(13,27,62,0.09);
+      transform: translateY(-2px);
+    }
+    .svc-card.dark { background: var(--navy); border-color: var(--navy); }
+    .svc-icon {
+      width: 48px; height: 48px;
+      background: rgba(196,151,42,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 16px;
+    }
+    .svc-card.dark .svc-icon { background: rgba(196,151,42,0.18); }
+    .svc-card h3 { font-size: 15.5px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .svc-card.dark h3 { color: var(--white); }
+    .svc-card p { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+    .svc-card.dark p { color: rgba(255,255,255,0.65); }
+    .svc-badge {
+      display: inline-block; margin-top: 14px;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--gold); background: rgba(196,151,42,0.1);
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    /* Oral grid: 2+3 layout */
+    .oral-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .oral-card {
+      background: var(--white); border-radius: 14px;
+      padding: 26px; border: 1px solid var(--border);
+      transition: all 0.22s;
+    }
+    .oral-card:hover { border-color: var(--navy); box-shadow: 0 4px 18px rgba(13,27,62,0.08); }
+    .oral-card.span2 { grid-column: span 2; }
+    .oral-card h3 { font-size: 15.5px; font-weight: 600; color: var(--navy); margin: 14px 0 8px; }
+    .oral-card p { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+
+    .pricing-note {
+      margin-top: 36px; padding: 22px 26px;
+      background: var(--white); border-radius: 12px;
+      border: 1px solid var(--border);
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .pricing-note .pn-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+    .pricing-note strong { display: block; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+    .pricing-note p { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+
+    /* ─── LANGUAGES ─── */
+    #languages { background: var(--navy); padding: 80px 48px; }
+    #languages .section-title { color: var(--white); }
+    #languages .section-sub  { color: rgba(255,255,255,0.55); }
+    .lang-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+    .lang-pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.11);
+      color: rgba(255,255,255,0.8);
+      padding: 9px 18px; border-radius: 50px;
+      font-size: 14px; transition: all 0.2s; cursor: default;
+    }
+    .lang-pill:hover { background: rgba(196,151,42,0.14); border-color: var(--gold); color: var(--gold); }
+    .lang-pill.hi { background: rgba(196,151,42,0.12); border-color: rgba(196,151,42,0.3); color: var(--gold); }
+
+    /* ─── CONFIDENTIALITY ─── */
+    #confidentiality { background: #EEE9E0; padding: 80px 48px; }
+    .conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .conf-points { display: flex; flex-direction: column; gap: 22px; margin-top: 30px; }
+    .conf-pt { display: flex; gap: 16px; align-items: flex-start; }
+    .conf-pt-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: var(--navy); border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
+    }
+    .conf-pt-text h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .conf-pt-text p { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+    .conf-panel {
+      background: var(--navy); border-radius: 20px;
+      padding: 48px; color: var(--white);
+    }
+    .conf-panel-icon { font-size: 58px; margin-bottom: 22px; line-height: 1; }
+    .conf-panel h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; color: var(--white);
+      line-height: 1.3; margin-bottom: 14px;
+    }
+    .conf-panel p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.75; }
+    .conf-panel-badge {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(196,151,42,0.13);
+      border: 1px solid rgba(196,151,42,0.25);
+      border-radius: 9px; padding: 14px 18px; margin-top: 24px;
+    }
+    .conf-panel-badge span { color: var(--gold); font-size: 14px; font-weight: 500; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--white); padding: 96px 48px; }
+    .contact-heading { text-align: center; margin-bottom: 60px; }
+    .contact-heading .section-tag { justify-content: center; }
+    .contact-heading .section-title { text-align: center; max-width: 520px; margin: 0 auto; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 72px; align-items: start; }
+    .contact-items { display: flex; flex-direction: column; gap: 26px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .ci-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(13,27,62,0.06); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .ci-body label {
+      display: block; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .ci-body p, .ci-body a {
+      font-size: 15px; color: var(--charcoal); text-decoration: none; line-height: 1.6;
+    }
+    .ci-body a:hover { color: var(--gold); }
+    .contact-form-wrap {
+      background: var(--cream); border-radius: 18px; padding: 40px;
+    }
+    .contact-form-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px; color: var(--navy); margin-bottom: 26px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .form-grp { margin-bottom: 14px; }
+    .form-grp label { display: block; font-size: 12.5px; font-weight: 500; color: var(--charcoal); margin-bottom: 5px; }
+    .form-grp input,
+    .form-grp select,
+    .form-grp textarea {
+      width: 100%; padding: 11px 15px;
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 14px; font-family: 'Inter', sans-serif;
+      color: var(--charcoal); background: var(--white);
+      outline: none; transition: border-color 0.2s;
+    }
+    .form-grp input:focus,
+    .form-grp select:focus,
+    .form-grp textarea:focus { border-color: var(--navy); }
+    .form-grp textarea { resize: vertical; min-height: 96px; }
+    .form-submit {
+      width: 100%; background: var(--navy); color: var(--white);
+      border: none; padding: 14px; border-radius: 8px;
+      font-size: 15px; font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer; transition: background 0.2s; letter-spacing: 0.01em;
+    }
+    .form-submit:hover { background: var(--navy-light); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 56px 48px 28px; }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .ft-brand .nav-logo { display: block; margin-bottom: 14px; }
+    .ft-brand p { color: rgba(255,255,255,0.45); font-size: 13.5px; line-height: 1.7; }
+    .ft-col h4 {
+      color: var(--white); font-size: 11.5px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .ft-col ul a {
+      color: rgba(255,255,255,0.45); text-decoration: none;
+      font-size: 13.5px; transition: color 0.18s;
+    }
+    .ft-col ul a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.28); font-size: 12.5px; }
+    .footer-bottom a { color: rgba(255,255,255,0.28); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav>
+  <a href="#hero" class="nav-logo">Sekreter&nbsp;<span>Büro</span></a>
+
+  <ul class="nav-links">
+    <li><a href="#about">
+      <span data-lang="tr">Hakkımızda</span>
+      <span data-lang="en">About</span>
+    </a></li>
+    <li><a href="#services">
+      <span data-lang="tr">Hizmetler</span>
+      <span data-lang="en">Services</span>
+    </a></li>
+    <li><a href="#languages">
+      <span data-lang="tr">Diller</span>
+      <span data-lang="en">Languages</span>
+    </a></li>
+    <li><a href="#confidentiality">
+      <span data-lang="tr">Gizlilik</span>
+      <span data-lang="en">Confidentiality</span>
+    </a></li>
+    <li><a href="#contact">
+      <span data-lang="tr">İletişim</span>
+      <span data-lang="en">Contact</span>
+    </a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('tr')">TR</button>
+      <button class="lang-btn"        onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contact" class="nav-cta">
+      <span data-lang="tr">Teklif Alın</span>
+      <span data-lang="en">Get a Quote</span>
+    </a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+
+    <!-- Left copy -->
+    <div>
+      <div class="hero-eyebrow">
+        <span data-lang="tr">1980'den Bu Yana — Ankara</span>
+        <span data-lang="en">Since 1980 — Ankara</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-lang="tr">Kelimelerinizin<br>Arkasında<br><em>40 Yıllık Güven</em></span>
+        <span data-lang="en">40 Years of Trust<br>Behind<br><em>Every Word</em></span>
+      </h1>
+
+      <p class="hero-sub">
+        <span data-lang="tr">Hukuki, tıbbi ve ticari belgelerinizden kişisel evraklarınıza kadar — Sekreter Büro olarak her tercümeyi en yüksek gizlilik ve kaliteyle sunuyoruz.</span>
+        <span data-lang="en">From legal, medical and commercial documents to personal records — Sekreter Büro delivers every translation with the highest standards of confidentiality and quality.</span>
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <span data-lang="tr">Teklif Alın</span>
+          <span data-lang="en">Get a Quote</span>
+          &nbsp;→
+        </a>
+        <a href="#services" class="btn-ghost">
+          <span data-lang="tr">Hizmetlerimiz</span>
+          <span data-lang="en">Our Services</span>
+          &nbsp;↓
+        </a>
+      </div>
+    </div>
+
+    <!-- Right stats -->
+    <div class="hero-right">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">40<sup>+</sup></div>
+          <div class="stat-lbl">
+            <span data-lang="tr">Yıllık Tecrübe</span>
+            <span data-lang="en">Years of Experience</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">22<sup>+</sup></div>
+          <div class="stat-lbl">
+            <span data-lang="tr">Aktif Dil</span>
+            <span data-lang="en">Active Languages</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2</div>
+          <div class="stat-lbl">
+            <span data-lang="tr">Nesil, Tek Kalite</span>
+            <span data-lang="en">Generations, One Standard</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100<sup>%</sup></div>
+          <div class="stat-lbl">
+            <span data-lang="tr">Gizlilik Güvencesi</span>
+            <span data-lang="en">Confidentiality Guaranteed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="conf-badge">
+        <div class="conf-badge-icon">🔒</div>
+        <div class="conf-badge-text">
+          <strong>
+            <span data-lang="tr">Belgeleriniz Güvende</span>
+            <span data-lang="en">Your Documents Are Safe</span>
+          </strong>
+          <span data-lang="tr">Dosyalarınız yalnızca ilgili tercüman ve büro personeli tarafından görülür.</span>
+          <span data-lang="en">Your files are seen only by the assigned translator and relevant staff.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TRUST BAR
+═══════════════════════════════════════════════ -->
+<div id="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-num">40<sup>+</sup></div>
+      <div class="trust-lbl"><span data-lang="tr">Yıllık Tecrübe</span><span data-lang="en">Years of Experience</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">22<sup>+</sup></div>
+      <div class="trust-lbl"><span data-lang="tr">Yazılı Dil</span><span data-lang="en">Written Languages</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">5</div>
+      <div class="trust-lbl"><span data-lang="tr">Sözlü Tercüme Türü</span><span data-lang="en">Oral Interpretation Types</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-num">100<sup>%</sup></div>
+      <div class="trust-lbl"><span data-lang="tr">Gizlilik Güvencesi</span><span data-lang="en">Confidentiality Guarantee</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <!-- Left: story -->
+      <div>
+        <div class="section-tag">
+          <span data-lang="tr">Hakkımızda</span>
+          <span data-lang="en">About Us</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang="tr">İki Nesil,<br>Tek <em>Tutku</em></span>
+          <span data-lang="en">Two Generations,<br>One <em>Passion</em></span>
+        </h2>
+        <div class="about-body">
+          <p>
+            <span data-lang="tr">Sekreter Büro, <strong>1980 yılında</strong> profesyonel bir İngilizce tercüman olan <strong>ER OK</strong> tarafından, Türkiye'deki tercüme hizmetleri açığını görerek kurulmuştur. Bugün şirketimiz ikinci neslin idaresiyle, kurucumuzun ışığını ve değerlerini taşıyarak yoluna devam etmektedir.</span>
+            <span data-lang="en">Sekreter Büro was founded in <strong>1980</strong> by <strong>ER OK</strong>, a professional English translator who identified a gap in Turkey's translation landscape. Today, under second-generation leadership, the company carries its founder's values forward.</span>
+          </p>
+          <div class="founder-quote">
+            <p>
+              "<span data-lang="tr">Biz kırk yıldır müşterilerimizin dilini konuşuyoruz.</span>
+               <span data-lang="en">For forty years, we have spoken our clients' language.</span>"
+            </p>
+            <cite>— ER OK, <span data-lang="tr">Kurucu</span><span data-lang="en">Founder</span>, 1980</cite>
+          </div>
+          <p>
+            <span data-lang="tr">Ankara'dan Türkiye'ye ve dünyaya hizmet veren büromuz; hukuki, tıbbi, teknik ve ticari alanlarda 22'den fazla dilde, yetkin kadrosuyla çalışmaktadır. Şirketimiz temelde, içinde birçok dili barındıran bir <strong>lisan çözümleri</strong> uzmanıdır.</span>
+            <span data-lang="en">Operating from Ankara, our office serves Turkey and the world with a qualified team across legal, medical, technical and commercial fields in 22+ languages. At its core, our firm is a specialist in <strong>language solutions</strong>.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: value cards -->
+      <div class="value-stack">
+        <div class="value-card">
+          <h4>🏛️ <span data-lang="tr">Köklü Tecrübe</span><span data-lang="en">Established Experience</span></h4>
+          <p><span data-lang="tr">40 yılı aşkın birikimimiz ve köklü müşteri ilişkilerimizle Ankara'nın en güvenilir tercüme bürosuyuz.</span><span data-lang="en">With 40+ years and lasting client relationships, we are Ankara's most trusted translation office.</span></p>
+        </div>
+        <div class="value-card">
+          <h4>🔒 <span data-lang="tr">Mutlak Gizlilik</span><span data-lang="en">Absolute Confidentiality</span></h4>
+          <p><span data-lang="tr">Belgeleriniz yalnızca ilgili tercüman ve büro personeli tarafından görülür. Gizlilik bizim için bir ilkedir.</span><span data-lang="en">Documents are seen only by the assigned translator and relevant staff. Confidentiality is our principle.</span></p>
+        </div>
+        <div class="value-card">
+          <h4>✅ <span data-lang="tr">Kalite Güvencesi</span><span data-lang="en">Quality Assurance</span></h4>
+          <p><span data-lang="tr">Her tercüme şirketimiz ve tercümanlarımız tarafından onaylanır. Gerektiğinde noter ve apostil işlemleri de gerçekleştirilir.</span><span data-lang="en">Every translation is approved by our team. Notarization and apostille services are available when needed.</span></p>
+        </div>
+        <div class="value-card">
+          <h4>🌍 <span data-lang="tr">Geniş Dil Yelpazesi</span><span data-lang="en">Wide Language Range</span></h4>
+          <p><span data-lang="tr">22'den fazla dilde yazılı ve sözlü tercüme hizmetleriyle kapsamlı bir lisan çözüm ortağıyız.</span><span data-lang="en">Written and oral translation in 22+ languages makes us a comprehensive language partner.</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════════ -->
+<section id="services">
+  <div class="section-inner">
+
+    <div class="services-top">
+      <div>
+        <div class="section-tag">
+          <span data-lang="tr">Hizmetlerimiz</span>
+          <span data-lang="en">Our Services</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang="tr">İhtiyacınıza Özel<br><em>Tercüme Çözümleri</em></span>
+          <span data-lang="en">Translation Solutions<br><em>Tailored to Your Needs</em></span>
+        </h2>
+      </div>
+      <p class="section-sub">
+        <span data-lang="tr">Kurumsal müşterilerden bireysel başvurulara kadar her türlü tercüme ihtiyacınızı karşılıyoruz. Belgelerinizi elektronik ortamda, faks veya posta yoluyla bize iletebilirsiniz.</span>
+        <span data-lang="en">From corporate clients to individual applicants, we cover every translation need. Send documents electronically, by fax, or by post.</span>
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="showTab(this,'written')">
+        📄 <span data-lang="tr">Yazılı Tercüme</span><span data-lang="en">Written Translation</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(this,'oral')">
+        🎙 <span data-lang="tr">Sözlü Tercüme</span><span data-lang="en">Oral Interpretation</span>
+      </button>
+      <button class="tab-btn" onclick="showTab(this,'personal')">
+        🎓 <span data-lang="tr">Bireysel Belgeler</span><span data-lang="en">Personal Documents</span>
+      </button>
+    </div>
+
+    <!-- ── Written ── -->
+    <div id="tab-written" class="tab-pane active">
+      <div class="card-grid">
+        <div class="svc-card dark">
+          <div class="svc-icon">⚖️</div>
+          <h3><span data-lang="tr">Hukuki Tercüme</span><span data-lang="en">Legal Translation</span></h3>
+          <p><span data-lang="tr">Sözleşmeler, mahkeme kararları, hukuki yazışmalar ve resmi belgeler için uzman hukuk terminolojisiyle hassas tercüme.</span><span data-lang="en">Precise translation of contracts, court decisions, legal correspondence and official documents with expert legal terminology.</span></p>
+          <div class="svc-badge">B2B</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🏥</div>
+          <h3><span data-lang="tr">Tıbbi Tercüme</span><span data-lang="en">Medical Translation</span></h3>
+          <p><span data-lang="tr">Tıbbi raporlar, ilaç prospektüsleri, klinik araştırma dokümanları ve hasta kayıtlarının güvenilir çevirisi.</span><span data-lang="en">Reliable translation of medical reports, drug leaflets, clinical research documents and patient records.</span></p>
+          <div class="svc-badge">B2B</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">⚙️</div>
+          <h3><span data-lang="tr">Teknik & Şartname</span><span data-lang="en">Technical & Specifications</span></h3>
+          <p><span data-lang="tr">Teknik belgeler, ürün şartnameleri, mühendislik kılavuzları ve endüstriyel dokümanların tercümesi.</span><span data-lang="en">Translation of technical documents, product specifications, engineering manuals and industrial documentation.</span></p>
+          <div class="svc-badge">B2B</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">💼</div>
+          <h3><span data-lang="tr">Ticari & Mali Metinler</span><span data-lang="en">Commercial & Financial</span></h3>
+          <p><span data-lang="tr">İş yazışmaları, mali raporlar, yatırım belgeleri ve ticari sözleşmelerin profesyonel tercümesi.</span><span data-lang="en">Professional translation of business correspondence, financial reports, investment documents and commercial contracts.</span></p>
+          <div class="svc-badge">B2B</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🌐</div>
+          <h3><span data-lang="tr">Web Sitesi Tercümesi</span><span data-lang="en">Website Translation</span></h3>
+          <p><span data-lang="tr">Web sitenizin ve dijital içeriklerinizin, hedef dilinizin kültürel yapısına uygun şekilde yerelleştirilmesi.</span><span data-lang="en">Localization of your website and digital content to fit the cultural context of the target language.</span></p>
+          <div class="svc-badge">B2B</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">📚</div>
+          <h3><span data-lang="tr">Edebi Metinler</span><span data-lang="en">Literary Texts</span></h3>
+          <p><span data-lang="tr">Roman, hikâye, şiir ve her türlü edebi eserin özüne sadık, akıcı ve duyarlı tercümesi.</span><span data-lang="en">Faithful, fluent and sensitive translation of novels, stories, poetry and all literary works.</span></p>
+          <div class="svc-badge">B2B / B2C</div>
+        </div>
+      </div>
+
+      <div class="pricing-note">
+        <div class="pn-icon">💡</div>
+        <div>
+          <strong><span data-lang="tr">Fiyatlandırma Hakkında</span><span data-lang="en">About Pricing</span></strong>
+          <p><span data-lang="tr">Kaynak dilden hedef dile tercümeden sonra çıkacak her <strong>180 kelime</strong>, 1 sayfa olarak kabul edilir. Dosyanızı elektronik ortamda, faks veya posta yoluyla göndererek fiyat teklifimizi alabilirsiniz.</span><span data-lang="en">Every <strong>180 words</strong> of translated output equals 1 page. Send your document electronically, by fax, or by post to receive a quote.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Oral ── -->
+    <div id="tab-oral" class="tab-pane">
+      <div class="oral-grid">
+        <div class="oral-card span2">
+          <div class="svc-icon">🎧</div>
+          <h3><span data-lang="tr">Simültane Çeviri (Eşzamanlı)</span><span data-lang="en">Simultaneous Interpretation</span></h3>
+          <p><span data-lang="tr">Büyük toplantılar ve yüksek düzey resmi konferanslar için tercümanın bir kabin içinden gerçek zamanlı olarak konuşmacının söylediklerini diğer dile çevirmesidir.</span><span data-lang="en">For large meetings and high-level conferences — the interpreter works in real time from a booth, rendering the speaker's words into the target language as they are spoken.</span></p>
+          <div class="svc-badge">B2B</div>
+        </div>
+        <div class="oral-card">
+          <div class="svc-icon">🤫</div>
+          <h3><span data-lang="tr">Fısıldayarak Çeviri</span><span data-lang="en">Whisper Interpretation</span></h3>
+          <p><span data-lang="tr">Bir toplulukta, tercümanın yanına oturduğu tek bir kişi için gerçek zamanlı, fısıldayarak yapılan çeviridir.</span><span data-lang="en">Real-time interpretation whispered to a single listener seated beside the interpreter within a group setting.</span></p>
+        </div>
+        <div class="oral-card">
+          <div class="svc-icon">🎤</div>
+          <h3><span data-lang="tr">Ardıl Çeviri</span><span data-lang="en">Consecutive Interpretation</span></h3>
+          <p><span data-lang="tr">Küçük veya orta büyüklükteki topluluklar için, konuşmacının ara vermesiyle tercümanın diğer dilde tekrar ettiği çeviridir.</span><span data-lang="en">The interpreter stands beside the speaker and re-delivers paragraphs in the target language at natural pauses.</span></p>
+        </div>
+        <div class="oral-card">
+          <div class="svc-icon">📞</div>
+          <h3><span data-lang="tr">Telefonda Çeviri</span><span data-lang="en">Phone Interpretation</span></h3>
+          <p><span data-lang="tr">Konferans görüşmesi yoluyla, görüşülmek istenen kişiyle tercüman aracılığıyla profesyonel telefon görüşmesi yapmanızı sağlar.</span><span data-lang="en">Enables a professional phone conversation with any party via a conference call mediated by the interpreter.</span></p>
+        </div>
+        <div class="oral-card">
+          <div class="svc-icon">🤝</div>
+          <h3><span data-lang="tr">Refakatçi Tercüman</span><span data-lang="en">Escort Interpreter</span></h3>
+          <p><span data-lang="tr">Yurt dışından gelen konuklarınızın ağırlanması süresince, tüm görüşmelerinde yanlarında yer alan tercüman hizmetidir.</span><span data-lang="en">An interpreter who accompanies your international guests throughout their visit, covering all meetings and social engagements.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Personal ── -->
+    <div id="tab-personal" class="tab-pane">
+      <div class="card-grid">
+        <div class="svc-card">
+          <div class="svc-icon">🎓</div>
+          <h3><span data-lang="tr">Diploma & Transkript</span><span data-lang="en">Diploma & Transcript</span></h3>
+          <p><span data-lang="tr">Yurt dışında eğitim veya iş başvurusu için diploma ve not döküm belgelerinizin onaylı tercümesi.</span><span data-lang="en">Certified translation of diplomas and transcripts for international education or job applications.</span></p>
+          <div class="svc-badge">B2C</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">✈️</div>
+          <h3><span data-lang="tr">Vize Belgeleri</span><span data-lang="en">Visa Documents</span></h3>
+          <p><span data-lang="tr">Vize başvuruları için gerekli tüm kişisel ve resmi belgelerin doğru ve hızlı tercümesi.</span><span data-lang="en">Accurate and timely translation of all personal and official documents required for visa applications.</span></p>
+          <div class="svc-badge">B2C</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🪪</div>
+          <h3><span data-lang="tr">Pasaport & Kimlik</span><span data-lang="en">Passport & ID</span></h3>
+          <p><span data-lang="tr">Pasaport, nüfus cüzdanı ve diğer kimlik belgelerinin resmi makamlar için geçerli tercümesi.</span><span data-lang="en">Valid translation of passports, national IDs and other identity documents for official authorities.</span></p>
+          <div class="svc-badge">B2C</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">📜</div>
+          <h3><span data-lang="tr">Noter & Apostil</span><span data-lang="en">Notarization & Apostille</span></h3>
+          <p><span data-lang="tr">Tercüme edilen belgelerinizin noter tasdiki, Dışişleri Bakanlığı onayı ve apostil işlemlerinin gerçekleştirilmesi.</span><span data-lang="en">Notarization, Ministry of Foreign Affairs approval and apostille processing for your translated documents.</span></p>
+          <div class="svc-badge">B2C</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">💍</div>
+          <h3><span data-lang="tr">Medeni Hal Belgeleri</span><span data-lang="en">Civil Status Documents</span></h3>
+          <p><span data-lang="tr">Evlilik cüzdanı, boşanma kararı, doğum belgesi gibi medeni hal belgelerinin resmi tercümesi.</span><span data-lang="en">Official translation of marriage certificates, divorce decrees, birth certificates and civil status documents.</span></p>
+          <div class="svc-badge">B2C</div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon">🏢</div>
+          <h3><span data-lang="tr">İş Başvurusu Belgeleri</span><span data-lang="en">Job Application Documents</span></h3>
+          <p><span data-lang="tr">CV, referans mektupları ve iş başvurusu için gereken tüm belgelerin profesyonel tercümesi.</span><span data-lang="en">Professional translation of CVs, reference letters and all documents needed for international job applications.</span></p>
+          <div class="svc-badge">B2C</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     LANGUAGES
+═══════════════════════════════════════════════ -->
+<section id="languages">
+  <div class="section-inner">
+    <div class="section-tag">
+      <span data-lang="tr">Dil Portföyümüz</span>
+      <span data-lang="en">Our Language Portfolio</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="tr">22'den Fazla Dilde<br><em>Hizmetinizdeyiz</em></span>
+      <span data-lang="en">At Your Service<br>in <em>22+ Languages</em></span>
+    </h2>
+    <p class="section-sub">
+      <span data-lang="tr">Türkçe'den diğer dillere, diğer dillerden Türkçe'ye ya da diller arası (önce Türkçe'ye çevrilmesi koşuluyla) tercüme gerçekleştiriyoruz.</span>
+      <span data-lang="en">We translate from Turkish into other languages, from other languages into Turkish, or between languages with Turkish as the pivot language.</span>
+    </p>
+    <div class="lang-cloud">
+      <div class="lang-pill hi">🇬🇧 <span data-lang="tr">İngilizce</span><span data-lang="en">English</span></div>
+      <div class="lang-pill hi">🇩🇪 <span data-lang="tr">Almanca</span><span data-lang="en">German</span></div>
+      <div class="lang-pill hi">🇫🇷 <span data-lang="tr">Fransızca</span><span data-lang="en">French</span></div>
+      <div class="lang-pill hi">🇪🇸 <span data-lang="tr">İspanyolca</span><span data-lang="en">Spanish</span></div>
+      <div class="lang-pill">🇮🇹 <span data-lang="tr">İtalyanca</span><span data-lang="en">Italian</span></div>
+      <div class="lang-pill">🇷🇺 <span data-lang="tr">Rusça</span><span data-lang="en">Russian</span></div>
+      <div class="lang-pill">🇧🇬 <span data-lang="tr">Bulgarca</span><span data-lang="en">Bulgarian</span></div>
+      <div class="lang-pill">🇺🇦 <span data-lang="tr">Ukraynaca</span><span data-lang="en">Ukrainian</span></div>
+      <div class="lang-pill">🇵🇹 <span data-lang="tr">Portekizce</span><span data-lang="en">Portuguese</span></div>
+      <div class="lang-pill">🇧🇪 <span data-lang="tr">Flamanca</span><span data-lang="en">Flemish</span></div>
+      <div class="lang-pill">🇸🇪 <span data-lang="tr">İsveççe</span><span data-lang="en">Swedish</span></div>
+      <div class="lang-pill">🇳🇴 <span data-lang="tr">Norveççe</span><span data-lang="en">Norwegian</span></div>
+      <div class="lang-pill">🇩🇰 <span data-lang="tr">Danimarkaca</span><span data-lang="en">Danish</span></div>
+      <div class="lang-pill">🇬🇷 <span data-lang="tr">Yunanca</span><span data-lang="en">Greek</span></div>
+      <div class="lang-pill">🇸🇦 <span data-lang="tr">Arapça</span><span data-lang="en">Arabic</span></div>
+      <div class="lang-pill">🇮🇷 <span data-lang="tr">Farsça</span><span data-lang="en">Persian</span></div>
+      <div class="lang-pill">📜 <span data-lang="tr">Osmanlıca</span><span data-lang="en">Ottoman Turkish</span></div>
+      <div class="lang-pill">🇨🇿 <span data-lang="tr">Çekçe</span><span data-lang="en">Czech</span></div>
+      <div class="lang-pill">🇷🇸 <span data-lang="tr">Sırpça</span><span data-lang="en">Serbian</span></div>
+      <div class="lang-pill">🇷🇴 <span data-lang="tr">Romence</span><span data-lang="en">Romanian</span></div>
+      <div class="lang-pill">🇭🇺 <span data-lang="tr">Macarca</span><span data-lang="en">Hungarian</span></div>
+      <div class="lang-pill">🇵🇱 <span data-lang="tr">Lehçe</span><span data-lang="en">Polish</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONFIDENTIALITY
+═══════════════════════════════════════════════ -->
+<section id="confidentiality">
+  <div class="section-inner">
+    <div class="conf-grid">
+
+      <!-- Left: points -->
+      <div>
+        <div class="section-tag">
+          <span data-lang="tr">Gizlilik İlkemiz</span>
+          <span data-lang="en">Our Confidentiality Principle</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang="tr">Belgeleriniz<br>Yalnızca <em>Sizindir</em></span>
+          <span data-lang="en">Your Documents<br>Belong Only <em>to You</em></span>
+        </h2>
+        <p class="section-sub">
+          <span data-lang="tr">Her alanda rekabetin yükseldiği günümüz iş dünyasında, öne çıkardığımız ilkelerimizden biri de gizliliktir.</span>
+          <span data-lang="en">In today's increasingly competitive business world, confidentiality is one of the principles we place above all others.</span>
+        </p>
+        <div class="conf-points">
+          <div class="conf-pt">
+            <div class="conf-pt-icon">🔐</div>
+            <div class="conf-pt-text">
+              <h4><span data-lang="tr">Sınırlı Erişim</span><span data-lang="en">Limited Access</span></h4>
+              <p><span data-lang="tr">Belgeleriniz yalnızca ilgili tercüman ve o dosya üzerinde çalışan büro personeli tarafından incelenir. Başka hiç kimse erişemez.</span><span data-lang="en">Your documents are reviewed only by the assigned translator and the staff member working on that file — no one else has access.</span></p>
+            </div>
+          </div>
+          <div class="conf-pt">
+            <div class="conf-pt-icon">🤐</div>
+            <div class="conf-pt-text">
+              <h4><span data-lang="tr">Üçüncü Taraf Yok</span><span data-lang="en">No Third Parties</span></h4>
+              <p><span data-lang="tr">İçerikleriniz hiçbir koşulda üçüncü şahıslarla paylaşılmaz veya ticari amaçlarla kullanılmaz.</span><span data-lang="en">Your content is never shared with third parties or used for commercial purposes under any circumstances.</span></p>
+            </div>
+          </div>
+          <div class="conf-pt">
+            <div class="conf-pt-icon">📁</div>
+            <div class="conf-pt-text">
+              <h4><span data-lang="tr">Güvenli İletim</span><span data-lang="en">Secure Transfer</span></h4>
+              <p><span data-lang="tr">Belgelerinizi e-posta, faks veya posta yoluyla güvenle bize iletebilirsiniz.</span><span data-lang="en">You can safely send your documents to us via email, fax, or postal mail.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: dark panel -->
+      <div class="conf-panel">
+        <div class="conf-panel-icon">🔒</div>
+        <h3>
+          <span data-lang="tr">Hassas belgeleriniz bizimle güvende.</span>
+          <span data-lang="en">Your sensitive documents are safe with us.</span>
+        </h3>
+        <p>
+          <span data-lang="tr">Hukuki davalar, tıbbi raporlar, ticari sırlar — ne tür belge olursa olsun, en yüksek gizlilik standardında işliyoruz. Bu, 40 yıldır değişmeyen taahhüdümüzdür.</span>
+          <span data-lang="en">Legal cases, medical records, trade secrets — whatever the document, we handle it to the highest confidentiality standard. This is our 40-year commitment.</span>
+        </p>
+        <div class="conf-panel-badge">
+          <span>🛡️</span>
+          <span>
+            <span data-lang="tr">40 Yıldır Güvenilir Tercüme Ortağı — Ankara</span>
+            <span data-lang="en">40 Years as a Trusted Translation Partner — Ankara</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="section-inner">
+
+    <div class="contact-heading">
+      <div class="section-tag">
+        <span data-lang="tr">İletişim</span>
+        <span data-lang="en">Contact</span>
+      </div>
+      <h2 class="section-title">
+        <span data-lang="tr">Tercüme İhtiyacınız İçin<br><em>Bize Ulaşın</em></span>
+        <span data-lang="en">Reach Us for<br><em>Your Translation Needs</em></span>
+      </h2>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Left: info -->
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-body">
+            <label><span data-lang="tr">Adres</span><span data-lang="en">Address</span></label>
+            <p>Selanik Caddesi No: 39/4<br>Kızılay / ANKARA</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-body">
+            <label><span data-lang="tr">Telefon</span><span data-lang="en">Phone</span></label>
+            <a href="tel:+903124180133">0.312 418 01 33</a><br>
+            <a href="tel:+903124254166">0.312 425 41 66</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📠</div>
+          <div class="ci-body">
+            <label><span data-lang="tr">Faks</span><span data-lang="en">Fax</span></label>
+            <p>0.312 418 42 98</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <div class="ci-body">
+            <label>E-posta / Email</label>
+            <a href="mailto:info@sekreterburo.com">info@sekreterburo.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">💬</div>
+          <div class="ci-body">
+            <label>Skype</label>
+            <a href="skype:alper_ok@hotmail.com">alper_ok@hotmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap">
+        <h3>
+          <span data-lang="tr">Teklif Talep Formu</span>
+          <span data-lang="en">Quote Request Form</span>
+        </h3>
+        <div class="form-row">
+          <div class="form-grp">
+            <label><span data-lang="tr">Ad Soyad</span><span data-lang="en">Full Name</span></label>
+            <input type="text" placeholder=" ">
+          </div>
+          <div class="form-grp">
+            <label><span data-lang="tr">E-posta</span><span data-lang="en">Email</span></label>
+            <input type="email" placeholder=" ">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-grp">
+            <label><span data-lang="tr">Kaynak Dil</span><span data-lang="en">Source Language</span></label>
+            <select>
+              <option value="">— <span data-lang="tr">Seçiniz</span><span data-lang="en">Select</span> —</option>
+              <option>Türkçe</option>
+              <option>English</option>
+              <option>Deutsch</option>
+              <option>Français</option>
+              <option>Español</option>
+              <option>Русский</option>
+              <option>العربية</option>
+            </select>
+          </div>
+          <div class="form-grp">
+            <label><span data-lang="tr">Hedef Dil</span><span data-lang="en">Target Language</span></label>
+            <select>
+              <option value="">— <span data-lang="tr">Seçiniz</span><span data-lang="en">Select</span> —</option>
+              <option>Türkçe</option>
+              <option>English</option>
+              <option>Deutsch</option>
+              <option>Français</option>
+              <option>Español</option>
+              <option>Русский</option>
+              <option>العربية</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grp">
+          <label><span data-lang="tr">Hizmet Türü</span><span data-lang="en">Service Type</span></label>
+          <select>
+            <option><span data-lang="tr">Yazılı Tercüme</span><span data-lang="en">Written Translation</span></option>
+            <option><span data-lang="tr">Sözlü Tercüme</span><span data-lang="en">Oral Interpretation</span></option>
+            <option><span data-lang="tr">Bireysel Belge (Diploma, Vize…)</span><span data-lang="en">Personal Document (Diploma, Visa…)</span></option>
+            <option><span data-lang="tr">Noter & Apostil</span><span data-lang="en">Notarization & Apostille</span></option>
+          </select>
+        </div>
+        <div class="form-grp">
+          <label><span data-lang="tr">Mesajınız</span><span data-lang="en">Your Message</span></label>
+          <textarea placeholder=" "></textarea>
+        </div>
+        <button class="form-submit">
+          <span data-lang="tr">Teklif Talep Et &nbsp;→</span>
+          <span data-lang="en">Request a Quote &nbsp;→</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="ft-brand">
+      <a href="#hero" class="nav-logo">Sekreter&nbsp;<span>Büro</span></a>
+      <p>
+        <span data-lang="tr">1980'den bu yana Ankara'da yetkin tercüme hizmetleri. İki neslin deneyimi, tek bir kalite standardı.</span>
+        <span data-lang="en">Professional translation services from Ankara since 1980. Two generations of experience, one quality standard.</span>
+      </p>
+    </div>
+    <div class="ft-col">
+      <h4><span data-lang="tr">Hizmetler</span><span data-lang="en">Services</span></h4>
+      <ul>
+        <li><a href="#services"><span data-lang="tr">Yazılı Tercüme</span><span data-lang="en">Written Translation</span></a></li>
+        <li><a href="#services"><span data-lang="tr">Sözlü Tercüme</span><span data-lang="en">Oral Interpretation</span></a></li>
+        <li><a href="#services"><span data-lang="tr">Bireysel Belgeler</span><span data-lang="en">Personal Documents</span></a></li>
+        <li><a href="#services"><span data-lang="tr">Noter & Apostil</span><span data-lang="en">Notarization & Apostille</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4><span data-lang="tr">Kurumsal</span><span data-lang="en">Company</span></h4>
+      <ul>
+        <li><a href="#about"><span data-lang="tr">Hakkımızda</span><span data-lang="en">About Us</span></a></li>
+        <li><a href="#confidentiality"><span data-lang="tr">Gizlilik İlkemiz</span><span data-lang="en">Confidentiality</span></a></li>
+        <li><a href="#languages"><span data-lang="tr">Dil Portföyü</span><span data-lang="en">Language Portfolio</span></a></li>
+        <li><a href="#contact"><span data-lang="tr">İletişim</span><span data-lang="en">Contact</span></a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4><span data-lang="tr">İletişim</span><span data-lang="en">Contact</span></h4>
+      <ul>
+        <li><a href="tel:+903124180133">0.312 418 01 33</a></li>
+        <li><a href="tel:+903124254166">0.312 425 41 66</a></li>
+        <li><a href="mailto:info@sekreterburo.com">info@sekreterburo.com</a></li>
+        <li><a href="#contact">Selanik Cad. 39/4, Kızılay</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Sekreter Büro. <span data-lang="tr">Tüm hakları saklıdır.</span><span data-lang="en">All rights reserved.</span></p>
+    <p>Ankara, <span data-lang="tr">Türkiye</span><span data-lang="en">Turkey</span></p>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════ -->
+<script>
+  /* ── Language switcher ── */
+  function setLang(lang) {
+    // Hide all lang nodes
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.removeProperty('display');
+      el.style.setProperty('display', 'none', 'important');
+    });
+    // Show target lang nodes
+    document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+      el.style.removeProperty('display');
+      const isInline = ['SPAN','A','STRONG','EM','CITE','LABEL'].includes(el.tagName);
+      el.style.setProperty('display', isInline ? 'inline' : 'block', 'important');
+    });
+    // Toggle button states
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.documentElement.lang = lang;
+  }
+
+  /* ── Service tabs ── */
+  function showTab(btn, id) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ── Init on load ── */
+  window.addEventListener('DOMContentLoaded', () => setLang('tr'));
+
+  /* ── Sticky nav background on scroll ── */
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 60 ? '0 2px 24px rgba(0,0,0,0.3)' : 'none';
+  });
+</script>
+
+</body>
+</html>
