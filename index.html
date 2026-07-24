@@ -471,6 +471,202 @@
     }
     .footer-bottom p { color: rgba(255,255,255,0.28); font-size: 12.5px; }
     .footer-bottom a { color: rgba(255,255,255,0.28); text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════
+       FLUID TYPOGRAPHY (scales across all widths)
+    ═══════════════════════════════════════════════ */
+    .hero-title      { font-size: clamp(32px, 4.5vw, 56px); }
+    h2.section-title { font-size: clamp(26px, 3vw, 38px); }
+
+    /* ═══════════════════════════════════════════════
+       HAMBURGER NAV (hidden on desktop)
+    ═══════════════════════════════════════════════ */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer;
+      background: none; border: none;
+      padding: 8px; border-radius: 6px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .mobile-menu {
+      display: none;
+      position: fixed; inset: 72px 0 0 0;
+      background: var(--navy);
+      z-index: 999;
+      padding: 32px 24px;
+      flex-direction: column;
+      gap: 0;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 20px; font-weight: 500;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: block;
+      transition: color 0.18s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mobile-lang {
+      display: flex; gap: 8px; margin-top: 28px;
+    }
+    .mobile-menu .mobile-lang button {
+      flex: 1; padding: 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; color: rgba(255,255,255,0.7);
+      font-size: 15px; font-weight: 600;
+      font-family: 'Inter', sans-serif; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .mobile-menu .mobile-lang button.active {
+      background: var(--gold); color: var(--navy);
+      border-color: var(--gold);
+    }
+    .mobile-menu .mobile-cta {
+      margin-top: 20px;
+      background: var(--gold); color: var(--navy) !important;
+      text-align: center; border-radius: 8px;
+      font-weight: 700 !important; font-size: 16px !important;
+      padding: 18px 0 !important; border-bottom: none !important;
+    }
+
+    /* ═══════════════════════════════════════════════
+       TABLET  ≤ 1024px
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; }
+      .nav-links, .nav-right { display: none; }
+      .nav-hamburger { display: flex; }
+
+      section { padding: 72px 32px; }
+      #trust-bar { padding: 32px 28px; }
+      #languages  { padding: 72px 32px; }
+      #confidentiality { padding: 72px 32px; }
+      footer      { padding: 48px 32px 24px; }
+
+      /* Hero */
+      #hero { padding: 110px 32px 64px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-sub   { max-width: 100%; }
+      .stat-grid  { grid-template-columns: repeat(4,1fr); }
+
+      /* Trust bar */
+      .trust-inner { grid-template-columns: repeat(4,1fr); }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Services */
+      .services-top { grid-template-columns: 1fr; gap: 24px; }
+      .card-grid    { grid-template-columns: repeat(2,1fr); }
+      .oral-grid    { grid-template-columns: repeat(2,1fr); }
+      .oral-card.span2 { grid-column: span 2; }
+
+      /* Confidentiality */
+      .conf-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Footer */
+      .footer-grid  { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       MOBILE  ≤ 640px
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; height: 64px; }
+      .mobile-menu { top: 64px; }
+
+      section { padding: 56px 20px; }
+      #trust-bar       { padding: 28px 20px; }
+      #languages       { padding: 56px 20px; }
+      #confidentiality { padding: 56px 20px; }
+      #contact         { padding: 56px 20px; }
+      footer           { padding: 44px 20px 20px; }
+
+      /* Hero */
+      #hero { padding: 96px 20px 52px; min-height: auto; }
+      .hero-eyebrow { font-size: 11px; }
+      .hero-sub { font-size: 15px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .btn-primary { width: 100%; justify-content: center; padding: 15px 24px; }
+
+      /* Stat cards: 2×2 */
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .stat-num  { font-size: 34px; }
+
+      /* Trust bar: 2×2 */
+      .trust-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .trust-item:not(:last-child)::after { display: none; }
+      .trust-num { font-size: 28px; }
+
+      /* About */
+      .about-grid { gap: 36px; }
+      .founder-quote p { font-size: 15px; }
+
+      /* Services tabs: horizontal scroll */
+      .tab-row {
+        width: 100%; overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 4px;
+      }
+      .tab-row::-webkit-scrollbar { display: none; }
+      .tab-btn { white-space: nowrap; font-size: 13px; padding: 9px 14px; }
+
+      /* Service cards: 1 col */
+      .card-grid { grid-template-columns: 1fr; }
+      .oral-grid { grid-template-columns: 1fr; }
+      .oral-card.span2 { grid-column: span 1; }
+
+      /* Contact form */
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 28px 20px; }
+
+      /* Confidentiality */
+      .conf-panel { padding: 32px 24px; }
+      .conf-panel-icon { font-size: 44px; }
+
+      /* Footer: single column */
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+      /* Section spacing */
+      h2.section-title { margin-bottom: 14px; }
+      .section-sub     { font-size: 15px; }
+
+      /* Pricing note */
+      .pricing-note { flex-direction: column; gap: 10px; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       XL SCREENS  ≥ 1400px
+    ═══════════════════════════════════════════════ */
+    @media (min-width: 1400px) {
+      .hero-inner,
+      .section-inner,
+      .trust-inner,
+      .footer-grid,
+      .footer-bottom { max-width: 1360px; }
+      nav { padding: 0 64px; }
+      section, #languages, #confidentiality, #contact { padding: 112px 64px; }
+      #trust-bar { padding: 40px 64px; }
+      footer { padding: 64px 64px 32px; }
+    }
   </style>
 </head>
 <body>
@@ -514,7 +710,26 @@
       <span data-lang="en">Get a Quote</span>
     </a>
   </div>
+
+  <!-- Hamburger (mobile only) -->
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile drawer -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about"           onclick="closeMenu()"><span data-lang="tr">Hakkımızda</span><span data-lang="en">About</span></a>
+  <a href="#services"        onclick="closeMenu()"><span data-lang="tr">Hizmetler</span><span data-lang="en">Services</span></a>
+  <a href="#languages"       onclick="closeMenu()"><span data-lang="tr">Diller</span><span data-lang="en">Languages</span></a>
+  <a href="#confidentiality" onclick="closeMenu()"><span data-lang="tr">Gizlilik</span><span data-lang="en">Confidentiality</span></a>
+  <a href="#contact"         onclick="closeMenu()"><span data-lang="tr">İletişim</span><span data-lang="en">Contact</span></a>
+  <a href="#contact" class="mobile-cta" onclick="closeMenu()"><span data-lang="tr">Teklif Alın →</span><span data-lang="en">Get a Quote →</span></a>
+  <div class="mobile-lang">
+    <button id="ml-tr" class="active" onclick="setLang('tr');updateMobileLang('tr')">TR</button>
+    <button id="ml-en"               onclick="setLang('en');updateMobileLang('en')">EN</button>
+  </div>
+</div>
 
 
 <!-- ═══════════════════════════════════════════════
@@ -1179,10 +1394,33 @@
   /* ── Init on load ── */
   window.addEventListener('DOMContentLoaded', () => setLang('tr'));
 
-  /* ── Sticky nav background on scroll ── */
+  /* ── Sticky nav shadow on scroll ── */
   window.addEventListener('scroll', () => {
     document.querySelector('nav').style.boxShadow =
       window.scrollY > 60 ? '0 2px 24px rgba(0,0,0,0.3)' : 'none';
+  });
+
+  /* ── Hamburger menu ── */
+  function toggleMenu() {
+    const btn  = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    const open = menu.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function updateMobileLang(lang) {
+    document.getElementById('ml-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('ml-en').classList.toggle('active', lang === 'en');
+  }
+
+  /* Close drawer when viewport resizes above mobile breakpoint */
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) closeMenu();
   });
 </script>
 
