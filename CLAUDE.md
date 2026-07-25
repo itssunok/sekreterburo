@@ -40,6 +40,12 @@ request better.
 - The user checks changes in their own browser — don't launch local servers
   or take screenshots to self-verify unless asked.
 
+## backlog.txt
+
+- When an item is completed, remove it from backlog.txt entirely — don't
+  leave it checked off. Git history is the record of what was done; the
+  backlog should only ever show what's still outstanding.
+
 ## Git workflow
 
 - Commit each logical change separately. Do not bundle multiple unrelated
