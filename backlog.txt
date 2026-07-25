@@ -1,7 +1,51 @@
 BACKLOG
 
+Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
+· COULD = nice to have, no urgency.
+
+## MUST HAVE (launch blockers)
+
 - [ ] Contact form has no backend. It's a static site, so submissions currently
       go nowhere (handleQuoteSubmit() in src/assets/js/main.js just shows a
       message pointing users to email). Need to wire it to a real form service
       (Formspree, Netlify Forms, or a custom endpoint) that also supports file
       uploads, since the form now includes a document upload field.
+- [ ] No <meta name="description"> or <title> tuned per-page — right now the
+      title is generic ("Sekreter Büro — Tercüme Hizmetleri") and there's no
+      description at all, so Google has nothing good to show in search
+      results.
+- [ ] No favicon — browser tabs and bookmarks show a blank/default icon.
+- [ ] sitemap.xml is referenced in public/robots.txt but does not exist in the
+      repo. Search engines that check it will 404.
+- [ ] No canonical URL (<link rel="canonical">) — risk of duplicate-content
+      issues if the site is ever reachable via multiple URLs (www vs non-www,
+      GitHub Pages default domain vs custom domain).
+
+## SHOULD HAVE (do soon after launch)
+
+- [ ] No Open Graph / Twitter Card meta tags — links shared on WhatsApp,
+      LinkedIn, etc. won't show a title/description/image preview.
+- [ ] No LocalBusiness structured data (JSON-LD) — this is a local Ankara
+      business with an address and phone number, which is exactly the kind
+      of listing Google rewards with rich results and Maps visibility.
+- [ ] The bilingual toggle (TR/EN) is JS-based and both languages ship in the
+      same HTML with the other hidden via CSS — search engines index both
+      language blocks as one page with no <html lang> per-language distinction
+      or hreflang tags, which hurts how the English content ranks.
+- [ ] The photo assets in /assets aren't used anywhere on the page yet — the
+      site is currently icon/emoji-only. Real photography (office, team,
+      documents) would help both trust and on-page content depth for SEO.
+- [ ] No analytics (Google Analytics / Plausible / GoatCounter) — no way to
+      see traffic or which pages/languages visitors actually use post-launch.
+- [ ] No image alt text audit — once real images are added, alt attributes
+      need to be written in both languages for accessibility and image search.
+
+## COULD HAVE (nice to have)
+
+- [ ] No 404 page — GitHub Pages serves its own generic 404 for bad URLs.
+- [ ] No performance pass yet (image compression/lazy-loading, font-display
+      strategy) — worth revisiting once real photography is added, since
+      that's what will actually affect load time.
+- [ ] No custom domain configured yet (site currently lives at the GitHub
+      Pages default domain per robots.txt) — a sekreterburo.com-style domain
+      reads more credibly than *.github.io for a 40-year-old business.
