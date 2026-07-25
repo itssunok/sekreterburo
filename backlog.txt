@@ -12,9 +12,6 @@ in parallel.
 
 - [ ] Redesign nav: floating pill bar inset from viewport edges, light
       --paper background; mobile drawer inverted to --ink.
-- [ ] Restyle Services: pill-shaped tabs (interaction unchanged), hairline-
-      top-border cards instead of full boxes, de-emphasized icons, B2B/C
-      badges as pill outlines.
 - [ ] Redesign Languages: switch section to dark (--ink) background, globe
       photo as circular inset, carousel pills restyled as flat outlined chips.
 - [ ] Redesign Confidentiality panel visual: still the original lock emoji
