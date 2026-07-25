@@ -13,6 +13,57 @@ in parallel.
 - [ ] Redesign Confidentiality panel visual: still the original lock emoji
       (🔒) — the ink-stamp graphic was tried here and in About but was
       rejected as not working, so this needs a different treatment.
+- [ ] Button contrast/consistency pass: .btn-primary (hero "Teklif Alın")
+      uses --ink text on --stamp background — hard to read, needs a
+      lighter text color for accessibility. While in there, make all
+      button-shaped elements consistently fully rounded (pill) — most
+      already are (nav-cta, form-submit, tab-btn) but .btn-primary is
+      still border-radius: 8px, not a pill.
+- [ ] Nav CTA ("Teklif Alın" in the floating nav) currently uses --ink
+      background — switch to --stamp (red) background instead so it
+      stands out more, per user preference. Check text contrast (see
+      button contrast item above) once switched.
+
+## CONTENT / SEO — "yeminli tercüman" & "noterli" positioning
+
+Sekreter Büro's translators are yeminli tercüman (sworn/certified
+translators registered with a notary) — this is a real credibility/SEO
+signal that's currently missing from the site entirely (zero mentions
+of "yeminli" or "noterli" in index.html or en/index.html as of
+2026-07-25).
+
+- [ ] Work "yeminli tercüman" / "noterli" (EN: "sworn translator" /
+      "notary-registered") naturally into: the hero headline or
+      supporting paragraph, the Services tab name for the relevant tab
+      (currently "Bireysel Belgeler" / notary-related work lives under
+      "Noter & Apostil" card), and spread a couple more natural
+      mentions through the body copy — not just appended as an
+      afterthought, sentences need to stay coherent in both languages.
+- [ ] Add the same keywords to SEO/AEO surfaces: <meta name="description">,
+      <title>, and the LocalBusiness JSON-LD "description" field, in both
+      index.html and en/index.html.
+
+## CONTENT RESTRUCTURE — About value list → Confidentiality intro
+
+- [ ] The About section's hairline value list (🏛️ Köklü Tecrübe / 🔒
+      Mutlak Gizlilik / ✅ Kalite Güvencesi, with emoji headers) reads
+      oddly as currently styled. User wants this content merged into
+      the Confidentiality section's intro copy (near "Gizlilik İlkemiz
+      / Belgeleriniz Yalnızca Sizindir...") instead of living as a
+      separate list in About. Needs a content + layout decision for
+      what replaces the value list in About once its content moves —
+      brainstorm before implementing, this changes IA, not just styling.
+
+## BUGS
+
+- [ ] EN language switcher (nav pill + mobile drawer + 404 page) may not
+      be routing to the correct en/ page in some cases per user report —
+      hrefs read correctly in source (relative "en/" from root, "../"
+      from en/) so needs live-URL reproduction to find the actual cause
+      (custom domain? cached old build? something else) before fixing.
+- [ ] Footer copyright year is hardcoded ("© 2024 Sekreter Büro...") and
+      already stale — make it dynamic (JS `new Date().getFullYear()`) so
+      it doesn't need a manual edit every January.
 
 ## MUST HAVE (launch blockers)
 
