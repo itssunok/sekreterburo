@@ -444,6 +444,20 @@
     .footer-bottom p { color: rgba(245,241,233,0.3); font-size: 12.5px; }
     .footer-bottom a { color: rgba(245,241,233,0.3); text-decoration: none; }
 
+    /* ─── LEGAL CONTENT (privacy/cookie policy page) ─── */
+    .legal-page { padding: 160px 48px 100px; max-width: 760px; margin: 0 auto; }
+    .legal-content { margin-top: 24px; }
+    .legal-content h2 {
+      font-family: 'Fraunces', serif; font-size: 24px; font-weight: 700;
+      color: var(--ink); margin: 44px 0 14px;
+    }
+    .legal-content h2:first-child { margin-top: 0; }
+    .legal-content p { font-size: 15px; color: var(--ink); line-height: 1.8; margin-bottom: 16px; }
+    .legal-content ul { margin: 0 0 16px 20px; }
+    .legal-content li { font-size: 15px; color: var(--ink); line-height: 1.8; margin-bottom: 6px; }
+    .legal-content a { color: var(--stamp); }
+    .legal-updated { font-size: 12.5px; color: var(--taupe); margin-top: 8px; }
+
     /* ─── COOKIE CONSENT ─── */
     .consent-banner {
       position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 2000;
@@ -629,6 +643,7 @@
       #confidentiality { padding: 56px 20px; }
       #contact         { padding: 56px 20px; }
       footer           { padding: 44px 20px 20px; }
+      .legal-page      { padding: 120px 20px 60px; }
 
       /* Cookie consent */
       .consent-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
