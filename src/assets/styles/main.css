@@ -275,15 +275,6 @@
     .oral-card h3 { font-size: 15.5px; font-weight: 600; color: var(--ink); margin: 14px 0 8px; }
     .oral-card p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
 
-    .pricing-note {
-      margin-top: 48px; padding-top: 24px;
-      border-top: 1px solid var(--border);
-      display: flex; gap: 16px; align-items: flex-start;
-    }
-    .pricing-note .pn-icon { font-size: 22px; flex-shrink: 0; opacity: 0.7; }
-    .pricing-note strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
-    .pricing-note p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
-
     /* ─── LANGUAGES ─── */
     #languages { background: var(--ink); padding: 80px 48px; }
     #languages .section-title { color: var(--white); }
@@ -622,9 +613,6 @@
       /* Section spacing */
       h2.section-title { margin-bottom: 14px; }
       .section-sub     { font-size: 15px; }
-
-      /* Pricing note */
-      .pricing-note { flex-direction: column; gap: 10px; }
     }
 
     /* ═══════════════════════════════════════════════
