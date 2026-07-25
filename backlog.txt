@@ -43,17 +43,6 @@ of "yeminli" or "noterli" in index.html or en/index.html as of
       <title>, and the LocalBusiness JSON-LD "description" field, in both
       index.html and en/index.html.
 
-## CONTENT RESTRUCTURE — About value list → Confidentiality intro
-
-- [ ] The About section's hairline value list (🏛️ Köklü Tecrübe / 🔒
-      Mutlak Gizlilik / ✅ Kalite Güvencesi, with emoji headers) reads
-      oddly as currently styled. User wants this content merged into
-      the Confidentiality section's intro copy (near "Gizlilik İlkemiz
-      / Belgeleriniz Yalnızca Sizindir...") instead of living as a
-      separate list in About. Needs a content + layout decision for
-      what replaces the value list in About once its content moves —
-      brainstorm before implementing, this changes IA, not just styling.
-
 ## MUST HAVE (launch blockers)
 
 - [ ] Contact form has no backend. It's a static site, so submissions currently

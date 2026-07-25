@@ -218,20 +218,6 @@
       color: var(--taupe); font-style: normal;
     }
 
-    /* Value list: hairline-divider rows instead of boxed cards */
-    .value-list { grid-column: 1 / -1; margin-top: 56px; border-top: 1px solid var(--border); }
-    .value-item {
-      display: grid; grid-template-columns: 240px 1fr;
-      gap: 32px; padding: 28px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .value-item h4 {
-      font-size: 16px; font-weight: 600;
-      color: var(--ink);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .value-item p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; max-width: 460px; }
-
     /* ─── SERVICES ─── */
     #services { background: var(--paper); }
     .services-top {
@@ -614,7 +600,6 @@
       /* About */
       .about-grid { gap: 36px; }
       .founder-quote p { font-size: 20px; }
-      .value-item { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
 
       /* Languages */
       .languages-head { flex-direction: column; align-items: flex-start; gap: 24px; }
