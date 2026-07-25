@@ -12,8 +12,6 @@ in parallel.
 
 - [ ] Redesign nav: floating pill bar inset from viewport edges, light
       --paper background; mobile drawer inverted to --ink.
-- [ ] Redesign hero: flags photo full-bleed rounded block; stat numbers
-      (40+/22+) as plain oversized numerals instead of boxed cards.
 - [ ] Redesign About: dictionary photo, pull-quote styling for founder
       quote, hairline-divider value list instead of boxed/bordered cards.
 - [ ] Restyle Services: pill-shaped tabs (interaction unchanged), hairline-
