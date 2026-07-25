@@ -26,12 +26,20 @@ request better.
 
 ## Bilingual content (TR/EN)
 
-- This site is bilingual via `data-lang="tr"` / `data-lang="en"` pairs. Any
-  content change must update both languages, kept in sync in meaning.
-- Never nest `data-lang` spans inside `<option>` tags — browsers strip
-  nested markup there and show both languages concatenated. Use separate
-  per-language `<select>` elements instead (see the contact form for the
-  pattern).
+- This site is bilingual via two separate static pages: `index.html` (Turkish,
+  canonical root) and `en/index.html` (English). There is no client-side
+  language toggle anymore — each page ships only its own language, which is
+  what makes hreflang/SEO actually work. Any content change must be applied
+  to both files in parallel, kept in sync in structure and meaning.
+- Asset paths differ by one directory level: `index.html` links
+  `src/assets/...`, `en/index.html` links `../src/assets/...`.
+- Both pages carry matching `<link rel="canonical">` and
+  `<link rel="alternate" hreflang="...">` tags pointing at each other (see
+  either file's `<head>`) — if the site's URL ever changes (e.g. a custom
+  domain), update both pages, `sitemap.xml`, and `robots.txt` together as
+  one change.
+- The nav/mobile-menu language switcher is a plain link to `./`/`en/` (from
+  root) or `../`/`./` (from `en/`) — not a JS toggle.
 
 ## Before calling something done
 

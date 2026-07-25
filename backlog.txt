@@ -19,10 +19,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 - [ ] LocalBusiness JSON-LD schema is live but has no `sameAs` (Google
       Business Profile / Facebook / Instagram / LinkedIn URLs) — need to
       check with Sekreter Büro whether these exist before adding them.
-- [ ] The bilingual toggle (TR/EN) is JS-based and both languages ship in the
-      same HTML with the other hidden via CSS — search engines index both
-      language blocks as one page with no <html lang> per-language distinction
-      or hreflang tags, which hurts how the English content ranks.
 - [ ] The photo assets in /assets aren't used anywhere on the page yet — the
       site is currently icon/emoji-only. Real photography (office, team,
       documents) would help both trust and on-page content depth for SEO.
@@ -40,6 +36,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 - [ ] Custom domain www.sekreterburo.com is planned but not yet configured
       (site currently lives at the GitHub Pages default domain). Once it's
       live: point DNS/GitHub Pages custom domain settings at it, then update
-      the canonical URL in index.html, sitemap.xml, and robots.txt to
-      https://www.sekreterburo.com/ (all three currently point to
-      https://itssunok.github.io/sekreterburo/).
+      the canonical/hreflang URLs in index.html and en/index.html, plus
+      sitemap.xml and robots.txt, from https://itssunok.github.io/sekreterburo/
+      (and its /en/ variant) to https://www.sekreterburo.com/.
