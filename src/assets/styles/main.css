@@ -256,19 +256,28 @@
 
     .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .svc-card {
-      background: none; border-radius: 0;
-      padding: 24px 4px 0; border: none;
-      border-top: 1px solid var(--border);
+      background: var(--white); border-radius: 14px;
+      padding: 28px; border: 1px solid var(--border);
       transition: all 0.22s;
     }
-    .svc-card:hover { border-top-color: var(--stamp); }
-    .svc-card.dark { border-top: 2px solid var(--stamp); }
-    .svc-icon {
-      font-size: 19px; margin-bottom: 14px;
-      opacity: 0.55; filter: grayscale(0.4);
+    .svc-card:hover {
+      border-color: var(--stamp);
+      box-shadow: 0 6px 28px rgba(22,20,15,0.09);
+      transform: translateY(-2px);
     }
+    .svc-card.dark { background: var(--ink); border-color: var(--ink); }
+    .svc-icon {
+      width: 48px; height: 48px;
+      background: rgba(184,69,44,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 16px;
+    }
+    .svc-card.dark .svc-icon { background: rgba(184,69,44,0.18); }
     .svc-card h3 { font-size: 15.5px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .svc-card.dark h3 { color: var(--white); }
     .svc-card p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
+    .svc-card.dark p { color: rgba(255,255,255,0.65); }
     .svc-badge {
       display: inline-block; margin-top: 14px;
       font-size: 10.5px; font-weight: 700;
@@ -281,12 +290,11 @@
     /* Oral grid: 2+3 layout */
     .oral-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .oral-card {
-      background: none; border-radius: 0;
-      padding: 24px 4px 0; border: none;
-      border-top: 1px solid var(--border);
+      background: var(--white); border-radius: 14px;
+      padding: 26px; border: 1px solid var(--border);
       transition: all 0.22s;
     }
-    .oral-card:hover { border-top-color: var(--stamp); }
+    .oral-card:hover { border-color: var(--ink); box-shadow: 0 4px 18px rgba(22,20,15,0.08); }
     .oral-card.span2 { grid-column: span 2; }
     .oral-card h3 { font-size: 15.5px; font-weight: 600; color: var(--ink); margin: 14px 0 8px; }
     .oral-card p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
