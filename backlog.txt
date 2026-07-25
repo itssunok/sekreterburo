@@ -32,8 +32,6 @@ in parallel.
       check with Sekreter Büro whether these exist before adding them.
 - [ ] No analytics (Google Analytics / Plausible / GoatCounter) — no way to
       see traffic or which pages/languages visitors actually use post-launch.
-- [ ] No image alt text audit — once real images are added, alt attributes
-      need to be written in both languages for accessibility and image search.
 
 ## COULD HAVE (nice to have)
 
