@@ -1,0 +1,7 @@
+BACKLOG
+
+- [ ] Contact form has no backend. It's a static site, so submissions currently
+      go nowhere (handleQuoteSubmit() in src/assets/js/main.js just shows a
+      message pointing users to email). Need to wire it to a real form service
+      (Formspree, Netlify Forms, or a custom endpoint) that also supports file
+      uploads, since the form now includes a document upload field.

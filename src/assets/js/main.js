@@ -56,3 +56,18 @@
   window.addEventListener('resize', () => {
     if (window.innerWidth > 1024) closeMenu();
   });
+
+  /* ── Quote form submit ──
+     Placeholder only: this is a static site with no backend, so submissions
+     currently go nowhere. Wire this to a real form service (Formspree,
+     Netlify Forms, custom endpoint, etc.) that supports file uploads before
+     launch — do not remove this comment until that's done. */
+  function handleQuoteSubmit(e) {
+    e.preventDefault();
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+    const msg = lang === 'en'
+      ? 'This form is not yet connected to a server. Please email your request and documents to info@sekreterburo.com.'
+      : 'Bu form henüz bir sunucuya bağlı değil. Lütfen talebinizi ve belgelerinizi info@sekreterburo.com adresine e-posta ile iletin.';
+    alert(msg);
+    return false;
+  }
