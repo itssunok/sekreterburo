@@ -16,3 +16,6 @@ Thumbs.db
 # Temp
 *.tmp
 *.temp
+
+# Environment / secrets
+.env

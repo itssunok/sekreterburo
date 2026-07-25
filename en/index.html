@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google tag (gtag.js) — __GA_MEASUREMENT_ID__ is substituted at deploy
+       time from the GA_MEASUREMENT_ID GitHub Actions secret, see
+       .github/workflows/deploy.yml and .env.example -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=__GA_MEASUREMENT_ID__"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '__GA_MEASUREMENT_ID__');
+  </script>
+
   <title>Sekreter Büro | Ankara Translation Agency | 22+ Languages | 40 Years of Experience</title>
   <meta name="description" content="Legal, medical, technical and commercial translation services in Ankara since 1980. Diploma, visa, ID and notarized document translation, with apostille support, in 22+ languages.">
   <link rel="canonical" href="https://itssunok.github.io/sekreterburo/en/">

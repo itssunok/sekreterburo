@@ -24,6 +24,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Inject GA measurement ID
+        env:
+          GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+        run: |
+          sed -i "s/__GA_MEASUREMENT_ID__/${GA_MEASUREMENT_ID}/g" index.html en/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
