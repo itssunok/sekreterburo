@@ -14,25 +14,6 @@ in parallel.
       (🔒) — the ink-stamp graphic was tried here and in About but was
       rejected as not working, so this needs a different treatment.
 
-## CONTENT / SEO — "yeminli tercüman" & "noterli" positioning
-
-Sekreter Büro's translators are yeminli tercüman (sworn/certified
-translators registered with a notary) — this is a real credibility/SEO
-signal that's currently missing from the site entirely (zero mentions
-of "yeminli" or "noterli" in index.html or en/index.html as of
-2026-07-25).
-
-- [ ] Work "yeminli tercüman" / "noterli" (EN: "sworn translator" /
-      "notary-registered") naturally into: the hero headline or
-      supporting paragraph, the Services tab name for the relevant tab
-      (currently "Bireysel Belgeler" / notary-related work lives under
-      "Noter & Apostil" card), and spread a couple more natural
-      mentions through the body copy — not just appended as an
-      afterthought, sentences need to stay coherent in both languages.
-- [ ] Add the same keywords to SEO/AEO surfaces: <meta name="description">,
-      <title>, and the LocalBusiness JSON-LD "description" field, in both
-      index.html and en/index.html.
-
 ## MUST HAVE (launch blockers)
 
 - [ ] Contact form has no backend. It's a static site, so submissions currently
