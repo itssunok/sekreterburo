@@ -344,9 +344,9 @@
     .conf-points { display: flex; flex-direction: column; gap: 22px; margin-top: 30px; }
     .conf-pt { display: flex; gap: 16px; align-items: flex-start; }
     .conf-pt-icon {
-      width: 42px; height: 42px; flex-shrink: 0;
-      background: var(--ink); border-radius: 9px;
-      display: flex; align-items: center; justify-content: center; font-size: 18px;
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: rgba(184,69,44,0.1); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
     }
     .conf-pt-text h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
     .conf-pt-text p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
