@@ -54,3 +54,4 @@ request better.
   into separate commits — one per change — rather than one bulk commit at
   the end.
 - Only commit when explicitly asked to.
+- Only commit files that do not create any risks in case of a public repo commits and deployments. For example secrets must be in the env file but the repo must keep this in gitignore only commit an env.example file if needed. 
