@@ -22,50 +22,52 @@
 
     /* ─── NAVIGATION ─── */
     nav {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(22,20,15,0.97);
-      backdrop-filter: blur(12px);
-      padding: 0 48px; height: 72px;
+      position: fixed; top: 20px; left: 20px; right: 20px; z-index: 1000;
+      max-width: 1200px; margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(22,20,15,0.1);
+      padding: 0 12px 0 28px; height: 68px;
       display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid rgba(184,69,44,0.2);
     }
     .nav-logo {
       font-family: 'Fraunces', serif;
-      font-size: 22px; font-weight: 600;
-      color: var(--white); text-decoration: none;
+      font-size: 20px; font-weight: 600;
+      color: var(--ink); text-decoration: none;
     }
     .nav-logo span { color: var(--stamp); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
     .nav-links a {
-      color: rgba(255,255,255,0.75); text-decoration: none;
+      color: var(--taupe); text-decoration: none;
       font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--stamp); }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
     .lang-switcher {
       display: flex; gap: 3px;
-      background: rgba(255,255,255,0.1);
+      background: var(--paper-dim);
       border-radius: 6px; padding: 3px;
     }
     .lang-btn {
       background: none; border: none;
-      color: rgba(255,255,255,0.55);
+      color: var(--taupe);
       font-size: 13px; font-weight: 600;
       padding: 5px 10px; border-radius: 4px;
       cursor: pointer; font-family: 'Work Sans', sans-serif;
       transition: all 0.18s; letter-spacing: 0.04em;
       text-decoration: none; display: inline-flex; align-items: center;
     }
-    .lang-btn.active { background: var(--stamp); color: var(--ink); }
+    .lang-btn.active { background: var(--ink); color: var(--paper); }
     .nav-cta {
-      background: var(--stamp); color: var(--ink);
-      padding: 10px 22px; border-radius: 6px;
+      background: var(--ink); color: var(--paper);
+      padding: 10px 22px; border-radius: 50px;
       font-size: 14px; font-weight: 700;
       text-decoration: none; transition: background 0.2s;
       letter-spacing: 0.01em;
     }
-    .nav-cta:hover { background: color-mix(in srgb, var(--stamp) 82%, white); }
+    .nav-cta:hover { background: color-mix(in srgb, var(--ink) 82%, black); }
 
     /* ─── HERO ─── */
     #hero {
@@ -485,7 +487,7 @@
     }
     .nav-hamburger span {
       display: block; width: 22px; height: 2px;
-      background: var(--white); border-radius: 2px;
+      background: var(--ink); border-radius: 2px;
       transition: all 0.25s;
     }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -495,7 +497,7 @@
     /* Mobile drawer */
     .mobile-menu {
       display: none;
-      position: fixed; inset: 72px 0 0 0;
+      position: fixed; inset: 104px 0 0 0;
       background: var(--ink);
       z-index: 999;
       padding: 32px 24px;
@@ -542,7 +544,7 @@
        TABLET  ≤ 1024px
     ═══════════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      nav { padding: 0 28px; }
+      nav { padding: 0 12px 0 24px; }
       .nav-links, .nav-right { display: none; }
       .nav-hamburger { display: flex; }
 
@@ -579,8 +581,8 @@
        MOBILE  ≤ 640px
     ═══════════════════════════════════════════════ */
     @media (max-width: 640px) {
-      nav { padding: 0 20px; height: 64px; }
-      .mobile-menu { top: 64px; }
+      nav { top: 14px; left: 14px; right: 14px; padding: 0 8px 0 20px; height: 60px; }
+      .mobile-menu { top: 90px; }
 
       section { padding: 56px 20px; }
       #languages       { padding: 56px 20px; }
