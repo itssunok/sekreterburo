@@ -10,8 +10,6 @@ Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
 URL structure changes. Must be applied to index.html and en/index.html
 in parallel.
 
-- [ ] Build the dictionary-entry eyebrow label style (mono, phonetic-style
-      bracket) used above every section heading.
 - [ ] Build the ink-stamp SVG graphic ("EST. 1980 · ANKARA", circular,
       slightly rotated) for use in About (founder quote) and Confidentiality.
 - [ ] Prep the 3 chosen photos (flags, dictionary macro, globe): crop/resize
