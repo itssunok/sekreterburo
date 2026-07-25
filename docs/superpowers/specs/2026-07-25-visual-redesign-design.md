@@ -58,12 +58,12 @@ Load via Google Fonts, same pattern as today (`<link>` in `<head>`,
    in JetBrains Mono, e.g.:
    `HAKKIMIZDA /haˈkːɯmɯzda/` — small caps main word, phonetic-style
    bracket in `--taupe`, `--stamp` colon/divider accent.
-2. **Ink-stamp graphic.** An inline SVG, circular, roughly hand-stamped
-   look (slightly rotated, subtle rough edge via SVG filter or dasharray
-   border), reading "EST. 1980 · ANKARA" around the rim with "40" centered.
-   In `--stamp` color at ~85% opacity over paper backgrounds, or paper-tint
-   over dark backgrounds. Used near: the founder quote (About), and as the
-   primary visual in Confidentiality (replacing the old lock-emoji panel).
+2. **Ink-stamp graphic — tried and rejected.** Built as an inline SVG
+   (circular, rotated, "EST. 1980 · ANKARA" ring text around a centered
+   "40") and placed in About and Confidentiality, but rejected as not
+   working for the design. Both spots reverted to their prior state
+   (plain founder quote, 🔒 emoji in Confidentiality). Confidentiality's
+   panel visual is still an open question — see backlog.txt.
 
 ### Photography (of the 6 images in `/assets`)
 
@@ -81,8 +81,9 @@ playful, harder to duotone cleanly into the quieter palette, and 3 well-
 placed photos read stronger than 6 forced ones.
 
 Services, Confidentiality, and Contact carry no photography — Services
-stays type/icon-driven (tabs preserved), Confidentiality gets the ink-stamp
-graphic instead, Contact stays text + map only.
+stays type/icon-driven (tabs preserved), Confidentiality's panel visual is
+still open (see backlog.txt — the ink-stamp graphic was tried and
+rejected there), Contact stays text + map only.
 
 **Image prep required:** source files are raw Unsplash downloads (1–4.6MB
 each, full camera resolution). Before use: crop/resize to the actual
@@ -133,9 +134,10 @@ space, echoing the reference site's number treatment.
 
 Two-column, text left / dictionary photo right (reversed from hero's
 image-right to vary rhythm), founder quote styled as a large pull-quote in
-Fraunces italic with the ink-stamp graphic placed beside/behind it. Value
-cards below become a simple horizontal-rule-separated list (no boxed
-cards, no left gold border) — hairline dividers instead, matching the
+Fraunces italic (the ink-stamp graphic was tried beside it but rejected —
+plain pull-quote instead). Value cards below become a simple
+horizontal-rule-separated list (no boxed cards, no left gold border) —
+hairline dividers instead, matching the
 editorial reference.
 
 ### Services
@@ -160,9 +162,10 @@ one dark section for contrast rhythm, pills then light-on-dark).
 
 ### Confidentiality
 
-Text column unchanged. Right panel: replace the lock-emoji dark panel with
-the large ink-stamp graphic as the centerpiece visual, on an `--ink`
-background panel, same supporting copy.
+Text column unchanged. Right panel stays `--ink` background, same
+supporting copy. The centerpiece visual is still open — the ink-stamp
+graphic was tried here and rejected, panel currently reverted to the
+original 🔒 emoji. See backlog.txt for this as an open item.
 
 ### Contact
 
@@ -194,8 +197,9 @@ new type/color tokens.
   support the new layout (e.g. hero no longer uses `.stat-grid` boxed
   cards). Both files must be edited in parallel per `CLAUDE.md`.
 - New: image prep (crop/compress the 3 chosen photos, duotone via CSS
-  filter), ink-stamp SVG (hand-authored, not an external icon library),
-  updated Google Fonts `<link>` (Fraunces, Work Sans, JetBrains Mono).
+  filter), updated Google Fonts `<link>` (Fraunces, Work Sans, JetBrains
+  Mono). The ink-stamp SVG was tried and rejected — see backlog.txt for
+  the still-open Confidentiality panel visual.
 - No JS logic changes expected beyond what's needed for any new
   interaction (none currently planned — nav scroll-shadow, hamburger,
   tabs, carousel all stay as-is, just re-skinned).

@@ -185,7 +185,6 @@
     .about-body p:last-child { margin-bottom: 0; }
     .about-body strong { color: var(--ink); }
     .founder-quote {
-      position: relative;
       border-left: 3px solid var(--stamp);
       background: var(--paper);
       border-radius: 0 8px 8px 0;
@@ -199,15 +198,6 @@
     .founder-quote cite {
       display: block; margin-top: 10px;
       font-size: 12px; color: var(--taupe); font-style: normal;
-    }
-
-    /* ─── INK-STAMP GRAPHIC ─── */
-    .stamp-graphic { color: var(--stamp); transform: rotate(-8deg); }
-    .stamp-graphic text { font-family: 'JetBrains Mono', monospace; }
-    .stamp-graphic .stamp-year { font-family: 'Fraunces', serif; }
-    .founder-quote .stamp-graphic {
-      position: absolute; top: -24px; right: -20px;
-      width: 84px; height: 84px;
     }
     .value-stack { display: flex; flex-direction: column; gap: 16px; }
     .value-card {
@@ -351,8 +341,7 @@
       background: var(--ink); border-radius: 20px;
       padding: 48px; color: var(--white);
     }
-    .conf-panel-icon { margin-bottom: 22px; }
-    .conf-panel-icon .stamp-graphic { width: 100px; height: 100px; color: var(--stamp); }
+    .conf-panel-icon { font-size: 58px; margin-bottom: 22px; line-height: 1; }
     .conf-panel h3 {
       font-family: 'Fraunces', serif;
       font-size: 24px; color: var(--white);
@@ -615,7 +604,7 @@
 
       /* Confidentiality */
       .conf-panel { padding: 32px 24px; }
-      .conf-panel-icon .stamp-graphic { width: 76px; height: 76px; }
+      .conf-panel-icon { font-size: 44px; }
 
       /* Footer: single column */
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
