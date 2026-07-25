@@ -54,12 +54,6 @@ of "yeminli" or "noterli" in index.html or en/index.html as of
       what replaces the value list in About once its content moves —
       brainstorm before implementing, this changes IA, not just styling.
 
-## BUGS
-
-- [ ] Footer copyright year is hardcoded ("© 2024 Sekreter Büro...") and
-      already stale — make it dynamic (JS `new Date().getFullYear()`) so
-      it doesn't need a manual edit every January.
-
 ## MUST HAVE (launch blockers)
 
 - [ ] Contact form has no backend. It's a static site, so submissions currently
