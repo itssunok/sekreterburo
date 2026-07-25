@@ -10,14 +10,7 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
       message pointing users to email). Need to wire it to a real form service
       (Formspree, Netlify Forms, or a custom endpoint) that also supports file
       uploads, since the form now includes a document upload field.
-- [x] Title and meta description written — was generic with no description at
-      all, now keyword-rich in Turkish (title, hukuki/tıbbi/teknik/ticari,
-      diploma/vize/kimlik/noter/apostil, 22+ dil, 40 yıl) for both search
-      engines and AI answer engines. Single-page site, so this is one shared
-      <title>/<meta description> rather than per-page tuning.
 - [ ] No favicon — browser tabs and bookmarks show a blank/default icon.
-- [ ] sitemap.xml is referenced in public/robots.txt but does not exist in the
-      repo. Search engines that check it will 404.
 - [ ] No canonical URL (<link rel="canonical">) — risk of duplicate-content
       issues if the site is ever reachable via multiple URLs (www vs non-www,
       GitHub Pages default domain vs custom domain).
