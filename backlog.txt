@@ -3,17 +3,6 @@ BACKLOG
 Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 · COULD = nice to have, no urgency.
 
-## IN PROGRESS — 2026 VISUAL REDESIGN (branch: redesign-2026)
-
-Full plan: docs/superpowers/specs/2026-07-25-visual-redesign-design.md.
-Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
-URL structure changes. Must be applied to index.html and en/index.html
-in parallel.
-
-- [ ] Redesign Confidentiality panel visual: still the original lock emoji
-      (🔒) — the ink-stamp graphic was tried here and in About but was
-      rejected as not working, so this needs a different treatment.
-
 ## MUST HAVE (launch blockers)
 
 - [ ] Contact form has no backend. It's a static site, so submissions currently
@@ -25,6 +14,11 @@ in parallel.
 
 ## SHOULD HAVE (do soon after launch)
 
+- [ ] Confidentiality panel visual is still the plain lock emoji (🔒) —
+      the ink-stamp graphic was tried here and in About during the 2026
+      redesign but was rejected as not working (see
+      docs/superpowers/specs/2026-07-25-visual-redesign-design.md), so
+      this still needs a different treatment.
 - [ ] No Open Graph / Twitter Card meta tags — links shared on WhatsApp,
       LinkedIn, etc. won't show a title/description/image preview.
 - [ ] LocalBusiness JSON-LD schema is live but has no `sameAs` (Google
