@@ -37,6 +37,9 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 - [ ] No performance pass yet (image compression/lazy-loading, font-display
       strategy) — worth revisiting once real photography is added, since
       that's what will actually affect load time.
-- [ ] No custom domain configured yet (site currently lives at the GitHub
-      Pages default domain per robots.txt) — a sekreterburo.com-style domain
-      reads more credibly than *.github.io for a 40-year-old business.
+- [ ] Custom domain www.sekreterburo.com is planned but not yet configured
+      (site currently lives at the GitHub Pages default domain). Once it's
+      live: point DNS/GitHub Pages custom domain settings at it, then update
+      the canonical URL in index.html, sitemap.xml, and robots.txt to
+      https://www.sekreterburo.com/ (all three currently point to
+      https://itssunok.github.io/sekreterburo/).
