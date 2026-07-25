@@ -33,6 +33,12 @@ in parallel.
 
 ## COULD HAVE (nice to have)
 
+- [ ] Interactive pricing estimator for the Services section's pricing
+      note: ask the client for per-language pricing, then add a word-count
+      slider that estimates a price as the user drags it. Needs pricing
+      data from Sekreter Büro first — this is a real feature (form logic +
+      pricing model), not just a styling change, so brainstorm/scope it
+      properly before implementing.
 - [ ] Custom domain sekreterburo.com is planned but not yet configured.
       Once it's live: point DNS at Cloudflare Pages and add the custom
       domain in the Cloudflare Pages project settings, then update the

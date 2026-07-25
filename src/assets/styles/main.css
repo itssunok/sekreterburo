@@ -276,12 +276,11 @@
     .oral-card p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
 
     .pricing-note {
-      margin-top: 36px; padding: 22px 26px;
-      background: var(--white); border-radius: 12px;
-      border: 1px solid var(--border);
+      margin-top: 48px; padding-top: 24px;
+      border-top: 1px solid var(--border);
       display: flex; gap: 16px; align-items: flex-start;
     }
-    .pricing-note .pn-icon { font-size: 26px; flex-shrink: 0; margin-top: 2px; }
+    .pricing-note .pn-icon { font-size: 22px; flex-shrink: 0; opacity: 0.7; }
     .pricing-note strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
     .pricing-note p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
 
