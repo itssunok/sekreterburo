@@ -2,7 +2,7 @@
 
 One-page marketing website for **Sekreter Büro**, an Ankara-based translation office founded in 1980.
 
-🌐 **Live site:** [itssunok.github.io/sekreterburo](https://itssunok.github.io/sekreterburo)
+🌐 **Live site:** deployed via Cloudflare Pages (auto-deploy on push to `main`). Custom domain `sekreterburo.com` planned but not yet configured.
 
 ---
 
@@ -10,20 +10,21 @@ One-page marketing website for **Sekreter Büro**, an Ankara-based translation o
 
 ```
 sekreterburo/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # Auto-deploys to GitHub Pages on push to main
-├── public/
-│   ├── favicon.ico             # Site favicon (replace with final logo)
-│   └── robots.txt              # SEO crawl instructions
+├── build.sh                    # Cloudflare Pages build command — substitutes
+│                                # the GA_MEASUREMENT_ID env var into the pages
+├── robots.txt                  # SEO crawl instructions
+├── sitemap.xml
 ├── src/
 │   └── assets/
-│       ├── images/             # Logos, photos (add here)
+│       ├── images/             # Logos, photos
 │       ├── styles/
 │       │   └── main.css        # All styles — variables, layout, responsive
 │       └── js/
-│           └── main.js         # Language switcher, tab logic, hamburger nav
-├── index.html                  # Entry point — links to CSS and JS above
+│           └── main.js         # Tab logic, hamburger nav, quote form
+├── index.html                  # TR entry point (canonical)
+├── en/
+│   └── index.html              # EN entry point
+├── .env.example
 ├── .gitignore
 └── README.md
 ```
@@ -53,9 +54,11 @@ Spanish (ES) and German (DE) are next — copy is ready to slot in.
 
 ## Deployment
 
-Pushes to `main` automatically deploy via GitHub Actions → GitHub Pages.
-
-To enable: **Repo Settings → Pages → Source: GitHub Actions**
+Pushes to `main` automatically deploy via **Cloudflare Pages**. Build
+command is `sh build.sh` (see that file), which substitutes the
+`GA_MEASUREMENT_ID` environment variable — set under the Cloudflare Pages
+project's Settings → Environment variables — into the site's Google
+Analytics snippet. See `.env.example` for details.
 
 ---
 

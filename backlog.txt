@@ -56,11 +56,6 @@ of "yeminli" or "noterli" in index.html or en/index.html as of
 
 ## BUGS
 
-- [ ] EN language switcher (nav pill + mobile drawer + 404 page) may not
-      be routing to the correct en/ page in some cases per user report —
-      hrefs read correctly in source (relative "en/" from root, "../"
-      from en/) so needs live-URL reproduction to find the actual cause
-      (custom domain? cached old build? something else) before fixing.
 - [ ] Footer copyright year is hardcoded ("© 2024 Sekreter Büro...") and
       already stale — make it dynamic (JS `new Date().getFullYear()`) so
       it doesn't need a manual edit every January.
@@ -84,9 +79,15 @@ of "yeminli" or "noterli" in index.html or en/index.html as of
 
 ## COULD HAVE (nice to have)
 
-- [ ] Custom domain www.sekreterburo.com is planned but not yet configured
-      (site currently lives at the GitHub Pages default domain). Once it's
-      live: point DNS/GitHub Pages custom domain settings at it, then update
-      the canonical/hreflang URLs in index.html and en/index.html, plus
+- [ ] Custom domain sekreterburo.com is planned but not yet configured.
+      Once it's live: point DNS at Cloudflare Pages and add the custom
+      domain in the Cloudflare Pages project settings, then update the
+      canonical/hreflang URLs in index.html and en/index.html, plus
       sitemap.xml and robots.txt, from https://itssunok.github.io/sekreterburo/
-      (and its /en/ variant) to https://www.sekreterburo.com/.
+      (and its /en/ variant) to the real domain.
+- [ ] README.md is stale in several places left over from before the 2026
+      redesign and bilingual split: "Sections" table describes the old
+      single-page layout (stat cards, trust bar, 4 value cards), "Languages"
+      still says client-side switcher (it's two static pages now), "Colors"
+      table lists the old navy/gold/cream palette instead of the current
+      paper/ink/stamp/sage/taupe tokens. Needs a rewrite pass.

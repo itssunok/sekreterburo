@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google tag (gtag.js) — __GA_MEASUREMENT_ID__ is substituted at deploy
-       time from the GA_MEASUREMENT_ID GitHub Actions secret, see
-       .github/workflows/deploy.yml and .env.example -->
+       time by build.sh (Cloudflare Pages build command) from the
+       GA_MEASUREMENT_ID Cloudflare Pages environment variable, see
+       build.sh and .env.example -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=__GA_MEASUREMENT_ID__"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
