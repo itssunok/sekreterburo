@@ -4,17 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google tag (gtag.js) — __GA_MEASUREMENT_ID__ is substituted at deploy
-       time by build.sh (Cloudflare Pages build command) from the
+  <!-- Google Analytics (gtag.js) — __GA_MEASUREMENT_ID__ is substituted at
+       deploy time by build.sh (Cloudflare Pages build command) from the
        GA_MEASUREMENT_ID Cloudflare Pages environment variable, see
-       build.sh and .env.example -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=__GA_MEASUREMENT_ID__"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '__GA_MEASUREMENT_ID__');
-  </script>
+       build.sh and .env.example. The script itself is NOT loaded here —
+       src/assets/js/consent.js only loads it after the visitor accepts
+       cookies via the consent banner, so no Google request/cookie ever
+       happens before consent. See
+       docs/superpowers/specs/2026-07-25-cookie-consent-design.md -->
+  <script>window.GA_MEASUREMENT_ID = '__GA_MEASUREMENT_ID__';</script>
 
   <title>Sekreter Büro | Yeminli Tercüman Ankara | 22+ Dil | 40 Yıllık Tecrübe</title>
   <meta name="description" content="Ankara'da 40 yılı aşkın tecrübeli yeminli ve noterli tercümanlarımızla hukuki, tıbbi ve ticari çeviri hizmeti. Apostil desteği ve 22'den fazla dilde hizmet.">
@@ -695,6 +693,8 @@
         <li><a href="#confidentiality">Değerlerimiz</a></li>
         <li><a href="#languages">Dil Portföyü</a></li>
         <li><a href="#contact">İletişim</a></li>
+        <li><a href="gizlilik-politikasi.html">Gizlilik ve Çerez Politikası</a></li>
+        <li><a href="#" onclick="openConsentManager(); return false;">Çerez Ayarları</a></li>
       </ul>
     </div>
     <div class="ft-col">
@@ -714,8 +714,48 @@
 </footer>
 
 <!-- ═══════════════════════════════════════════════
+     COOKIE CONSENT
+═══════════════════════════════════════════════ -->
+<div class="consent-banner" id="consentBanner" hidden>
+  <div class="consent-top">
+    <p class="consent-text">
+      Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. Analitik çerezler yalnızca onayınızla etkinleşir. Detaylar için <a href="gizlilik-politikasi.html">Gizlilik ve Çerez Politikası</a>'nı inceleyebilirsiniz.
+    </p>
+    <div class="consent-actions">
+      <button type="button" class="consent-link-btn" id="consentManageBtn">Yönet</button>
+      <button type="button" class="consent-btn consent-btn-reject" id="consentRejectBtn">Reddet</button>
+      <button type="button" class="consent-btn consent-btn-accept" id="consentAcceptBtn">Kabul Et</button>
+    </div>
+  </div>
+  <div class="consent-panel" id="consentPanel" hidden>
+    <div class="consent-row">
+      <div>
+        <strong>Zorunlu</strong>
+        <p>Bu site şu anda zorunlu herhangi bir çerez kullanmamaktadır. Bu seçenek yalnızca bilgilendirme amaçlıdır.</p>
+      </div>
+      <label class="consent-toggle">
+        <input type="checkbox" checked disabled>
+        <span></span>
+      </label>
+    </div>
+    <div class="consent-row">
+      <div>
+        <strong>Analitik</strong>
+        <p>Google Analytics aracılığıyla ziyaretçi istatistiklerini anonim olarak analiz etmemize yardımcı olur.</p>
+      </div>
+      <label class="consent-toggle">
+        <input type="checkbox" id="consentAnalyticsToggle">
+        <span></span>
+      </label>
+    </div>
+    <button type="button" class="consent-btn consent-btn-accept consent-save-btn" id="consentSaveBtn">Tercihleri Kaydet</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
 <script src="src/assets/js/main.js" defer></script>
+<script src="src/assets/js/consent.js" defer></script>
 </body>
 </html>

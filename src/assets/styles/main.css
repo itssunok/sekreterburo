@@ -444,6 +444,70 @@
     .footer-bottom p { color: rgba(245,241,233,0.3); font-size: 12.5px; }
     .footer-bottom a { color: rgba(245,241,233,0.3); text-decoration: none; }
 
+    /* ─── COOKIE CONSENT ─── */
+    .consent-banner {
+      position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 2000;
+      max-width: 900px; margin: 0 auto;
+      background: var(--paper); border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(22,20,15,0.22);
+      padding: 24px 28px;
+    }
+    .consent-banner[hidden] { display: none; }
+    .consent-top {
+      display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+    }
+    .consent-text {
+      flex: 1 1 320px; font-size: 13.5px; color: var(--taupe); line-height: 1.6;
+    }
+    .consent-text a { color: var(--ink); text-decoration: underline; }
+    .consent-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+    .consent-link-btn {
+      background: none; border: none; color: var(--taupe);
+      font-size: 13.5px; font-weight: 500; text-decoration: underline;
+      cursor: pointer; font-family: 'Work Sans', sans-serif; padding: 8px 4px;
+    }
+    .consent-link-btn:hover { color: var(--ink); }
+    .consent-btn {
+      border-radius: 50px; padding: 11px 20px;
+      font-size: 13.5px; font-weight: 700;
+      font-family: 'Work Sans', sans-serif; cursor: pointer;
+      transition: all 0.2s; white-space: nowrap;
+    }
+    .consent-btn-reject { background: none; border: 1px solid var(--border); color: var(--ink); }
+    .consent-btn-reject:hover { border-color: var(--ink); }
+    .consent-btn-accept { background: var(--stamp); border: 1px solid var(--stamp); color: var(--paper); }
+    .consent-btn-accept:hover { background: color-mix(in srgb, var(--stamp) 82%, black); }
+    .consent-panel {
+      margin-top: 20px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .consent-panel[hidden] { display: none; }
+    .consent-row {
+      display: flex; gap: 20px; align-items: flex-start; justify-content: space-between;
+    }
+    .consent-row strong { display: block; font-size: 13.5px; color: var(--ink); margin-bottom: 3px; }
+    .consent-row p { font-size: 12.5px; color: var(--taupe); line-height: 1.6; max-width: 480px; }
+    .consent-toggle {
+      position: relative; flex-shrink: 0; width: 40px; height: 22px;
+      display: inline-block; margin-top: 2px;
+    }
+    .consent-toggle input { opacity: 0; width: 0; height: 0; }
+    .consent-toggle span {
+      position: absolute; inset: 0; border-radius: 22px;
+      background: var(--border); transition: background 0.2s;
+    }
+    .consent-toggle span::before {
+      content: ''; position: absolute; width: 16px; height: 16px;
+      left: 3px; top: 3px; border-radius: 50%;
+      background: var(--white); transition: transform 0.2s;
+    }
+    .consent-toggle input:checked + span { background: var(--stamp); }
+    .consent-toggle input:checked + span::before { transform: translateX(18px); }
+    .consent-toggle input:disabled + span { background: var(--border); opacity: 0.6; }
+    .consent-save-btn { align-self: flex-start; }
+
     /* ═══════════════════════════════════════════════
        FLUID TYPOGRAPHY (scales across all widths)
     ═══════════════════════════════════════════════ */
@@ -565,6 +629,14 @@
       #confidentiality { padding: 56px 20px; }
       #contact         { padding: 56px 20px; }
       footer           { padding: 44px 20px 20px; }
+
+      /* Cookie consent */
+      .consent-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
+      .consent-top { flex-direction: column; align-items: stretch; gap: 16px; }
+      .consent-text { flex: none; }
+      .consent-actions { flex-wrap: wrap; }
+      .consent-btn { flex: 1; text-align: center; }
+      .consent-row { flex-direction: column; gap: 8px; }
 
       /* Hero */
       #hero { padding: 96px 20px 52px; min-height: auto; }

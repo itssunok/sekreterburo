@@ -4,17 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google tag (gtag.js) — __GA_MEASUREMENT_ID__ is substituted at deploy
-       time by build.sh (Cloudflare Pages build command) from the
+  <!-- Google Analytics (gtag.js) — __GA_MEASUREMENT_ID__ is substituted at
+       deploy time by build.sh (Cloudflare Pages build command) from the
        GA_MEASUREMENT_ID Cloudflare Pages environment variable, see
-       build.sh and .env.example -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=__GA_MEASUREMENT_ID__"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '__GA_MEASUREMENT_ID__');
-  </script>
+       build.sh and .env.example. The script itself is NOT loaded here —
+       src/assets/js/consent.js only loads it after the visitor accepts
+       cookies via the consent banner, so no Google request/cookie ever
+       happens before consent. See
+       docs/superpowers/specs/2026-07-25-cookie-consent-design.md -->
+  <script>window.GA_MEASUREMENT_ID = '__GA_MEASUREMENT_ID__';</script>
 
   <title>Sekreter Büro | Sworn Translator Ankara | 22+ Languages | 40 Years of Experience</title>
   <meta name="description" content="Legal, medical and commercial translation by our sworn and notarized translators, with 40+ years of experience in Ankara. Apostille support in 22+ languages.">
@@ -723,6 +721,8 @@
         <li><a href="#confidentiality">Our Values</a></li>
         <li><a href="#languages">Language Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="gizlilik-politikasi.html">Privacy & Cookie Policy</a></li>
+        <li><a href="#" onclick="openConsentManager(); return false;">Cookie Settings</a></li>
       </ul>
     </div>
     <div class="ft-col">
@@ -742,8 +742,48 @@
 </footer>
 
 <!-- ═══════════════════════════════════════════════
+     COOKIE CONSENT
+═══════════════════════════════════════════════ -->
+<div class="consent-banner" id="consentBanner" hidden>
+  <div class="consent-top">
+    <p class="consent-text">
+      We use cookies to give you a better experience. Analytics cookies are only enabled with your consent. See our <a href="gizlilik-politikasi.html">Privacy &amp; Cookie Policy</a> for details.
+    </p>
+    <div class="consent-actions">
+      <button type="button" class="consent-link-btn" id="consentManageBtn">Manage</button>
+      <button type="button" class="consent-btn consent-btn-reject" id="consentRejectBtn">Reject</button>
+      <button type="button" class="consent-btn consent-btn-accept" id="consentAcceptBtn">Accept All</button>
+    </div>
+  </div>
+  <div class="consent-panel" id="consentPanel" hidden>
+    <div class="consent-row">
+      <div>
+        <strong>Necessary</strong>
+        <p>This site does not currently use any strictly necessary cookies. This option is shown for information only.</p>
+      </div>
+      <label class="consent-toggle">
+        <input type="checkbox" checked disabled>
+        <span></span>
+      </label>
+    </div>
+    <div class="consent-row">
+      <div>
+        <strong>Analytics</strong>
+        <p>Helps us understand visitor statistics anonymously via Google Analytics.</p>
+      </div>
+      <label class="consent-toggle">
+        <input type="checkbox" id="consentAnalyticsToggle">
+        <span></span>
+      </label>
+    </div>
+    <button type="button" class="consent-btn consent-btn-accept consent-save-btn" id="consentSaveBtn">Save Preferences</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
      JAVASCRIPT
 ═══════════════════════════════════════════════ -->
 <script src="../src/assets/js/main.js" defer></script>
+<script src="../src/assets/js/consent.js" defer></script>
 </body>
 </html>
