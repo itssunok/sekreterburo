@@ -10,9 +10,6 @@ Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
 URL structure changes. Must be applied to index.html and en/index.html
 in parallel.
 
-- [ ] Replace navy/gold CSS tokens with new palette: --paper #F5F1E9,
-      --paper-dim #ECE6D6, --ink #16140F, --stamp #B8452C, --sage #6E7458,
-      --taupe #8C8474.
 - [ ] Swap Google Fonts to Fraunces (display), Work Sans (body), JetBrains
       Mono (utility/labels) — replaces Playfair Display + Inter.
 - [ ] Build the dictionary-entry eyebrow label style (mono, phonetic-style
