@@ -10,8 +10,6 @@ Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
 URL structure changes. Must be applied to index.html and en/index.html
 in parallel.
 
-- [ ] Redesign Languages: switch section to dark (--ink) background, globe
-      photo as circular inset, carousel pills restyled as flat outlined chips.
 - [ ] Redesign Confidentiality panel visual: still the original lock emoji
       (🔒) — the ink-stamp graphic was tried here and in About but was
       rejected as not working, so this needs a different treatment.

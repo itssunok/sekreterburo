@@ -315,6 +315,15 @@
     #languages { background: var(--ink); padding: 80px 48px; }
     #languages .section-title { color: var(--white); }
     #languages .section-sub  { color: rgba(255,255,255,0.55); }
+    .languages-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 48px;
+    }
+    .languages-photo {
+      flex-shrink: 0; width: 132px; height: 132px;
+      border-radius: 50%;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
     .lang-carousel {
       margin-top: 40px; overflow: hidden;
       display: flex;
@@ -337,15 +346,15 @@
       .lang-track[aria-hidden="true"] { display: none; }
     }
     .lang-pill {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.11);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.18);
       color: rgba(255,255,255,0.8);
       padding: 9px 18px; border-radius: 50px;
       font-size: 14px; transition: all 0.2s; cursor: default;
       white-space: nowrap; flex-shrink: 0;
     }
-    .lang-pill:hover { background: rgba(184,69,44,0.14); border-color: var(--stamp); color: var(--stamp); }
-    .lang-pill.hi { background: rgba(184,69,44,0.12); border-color: rgba(184,69,44,0.3); color: var(--stamp); }
+    .lang-pill:hover { border-color: var(--stamp); color: var(--stamp); }
+    .lang-pill.hi { border-color: var(--stamp); color: var(--stamp); }
 
     /* ─── CONFIDENTIALITY ─── */
     #confidentiality { background: #EEE9E0; padding: 80px 48px; }
@@ -605,6 +614,10 @@
       .about-grid { gap: 36px; }
       .founder-quote p { font-size: 20px; }
       .value-item { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+
+      /* Languages */
+      .languages-head { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .languages-photo { width: 96px; height: 96px; }
 
       /* Services tabs: horizontal scroll */
       .tab-row {
