@@ -222,8 +222,9 @@
     #services { background: var(--paper); }
     .services-top {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 60px; align-items: end; margin-bottom: 40px;
+      gap: 60px; align-items: start; margin-bottom: 40px;
     }
+    .services-top .section-sub { margin-top: 38px; }
     .tab-row {
       display: flex; gap: 4px;
       background: rgba(22,20,15,0.07);
@@ -537,6 +538,7 @@
 
       /* Services */
       .services-top { grid-template-columns: 1fr; gap: 24px; }
+      .services-top .section-sub { margin-top: 0; }
       .card-grid    { grid-template-columns: repeat(2,1fr); }
       .oral-grid    { grid-template-columns: repeat(2,1fr); }
       .oral-card.span2 { grid-column: span 2; }
