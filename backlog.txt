@@ -10,8 +10,6 @@ Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
 URL structure changes. Must be applied to index.html and en/index.html
 in parallel.
 
-- [ ] Build the ink-stamp SVG graphic ("EST. 1980 · ANKARA", circular,
-      slightly rotated) for use in About (founder quote) and Confidentiality.
 - [ ] Prep the 3 chosen photos (flags, dictionary macro, globe): crop/resize
       down from raw multi-MB Unsplash originals, compress, apply duotone
       treatment (CSS filter preferred over pre-baked file).
@@ -26,8 +24,6 @@ in parallel.
       badges as pill outlines.
 - [ ] Redesign Languages: switch section to dark (--ink) background, globe
       photo as circular inset, carousel pills restyled as flat outlined chips.
-- [ ] Redesign Confidentiality: replace lock-emoji panel with the ink-stamp
-      graphic as centerpiece visual.
 - [ ] Restyle contact form inputs to underline-style (no box/radius);
       submit button in --ink.
 - [ ] Restyle footer to new --ink/--paper tokens.
