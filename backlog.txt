@@ -29,7 +29,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 
 ## COULD HAVE (nice to have)
 
-- [ ] No 404 page — GitHub Pages serves its own generic 404 for bad URLs.
 - [ ] No performance pass yet (image compression/lazy-loading, font-display
       strategy) — worth revisiting once real photography is added, since
       that's what will actually affect load time.
