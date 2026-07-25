@@ -10,9 +10,6 @@ Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
 URL structure changes. Must be applied to index.html and en/index.html
 in parallel.
 
-- [ ] Prep the 3 chosen photos (flags, dictionary macro, globe): crop/resize
-      down from raw multi-MB Unsplash originals, compress, apply duotone
-      treatment (CSS filter preferred over pre-baked file).
 - [ ] Redesign nav: floating pill bar inset from viewport edges, light
       --paper background; mobile drawer inverted to --ink.
 - [ ] Redesign hero: flags photo full-bleed rounded block; stat numbers
