@@ -585,15 +585,14 @@
       .languages-head { flex-direction: column; align-items: flex-start; gap: 24px; }
       .languages-photo { width: 96px; height: 96px; }
 
-      /* Services tabs: horizontal scroll */
+      /* Services tabs: equal-width, fill the row */
       .tab-row {
-        width: 100%; overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        gap: 4px;
+        width: 100%; gap: 4px;
       }
-      .tab-row::-webkit-scrollbar { display: none; }
-      .tab-btn { white-space: nowrap; font-size: 13px; padding: 9px 14px; }
+      .tab-btn {
+        flex: 1; text-align: center;
+        white-space: nowrap; font-size: 13px; padding: 9px 10px;
+      }
 
       /* Service cards: 1 col */
       .card-grid { grid-template-columns: 1fr; }
