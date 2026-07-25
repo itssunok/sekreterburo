@@ -328,9 +328,9 @@
       .lang-track[aria-hidden="true"] { display: none; }
     }
     .lang-pill {
-      background: none;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: rgba(255,255,255,0.8);
+      background: var(--paper);
+      border: 1px solid var(--paper);
+      color: var(--ink);
       padding: 9px 18px; border-radius: 50px;
       font-size: 14px; transition: all 0.2s; cursor: default;
       white-space: nowrap; flex-shrink: 0;
