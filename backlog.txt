@@ -16,9 +16,9 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 
 - [ ] No Open Graph / Twitter Card meta tags — links shared on WhatsApp,
       LinkedIn, etc. won't show a title/description/image preview.
-- [ ] No LocalBusiness structured data (JSON-LD) — this is a local Ankara
-      business with an address and phone number, which is exactly the kind
-      of listing Google rewards with rich results and Maps visibility.
+- [ ] LocalBusiness JSON-LD schema is live but has no `sameAs` (Google
+      Business Profile / Facebook / Instagram / LinkedIn URLs) — need to
+      check with Sekreter Büro whether these exist before adding them.
 - [ ] The bilingual toggle (TR/EN) is JS-based and both languages ship in the
       same HTML with the other hidden via CSS — search engines index both
       language blocks as one page with no <html lang> per-language distinction
