@@ -11,9 +11,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
       (Formspree, Netlify Forms, or a custom endpoint) that also supports file
       uploads, since the form now includes a document upload field.
 - [ ] No favicon — browser tabs and bookmarks show a blank/default icon.
-- [ ] No canonical URL (<link rel="canonical">) — risk of duplicate-content
-      issues if the site is ever reachable via multiple URLs (www vs non-www,
-      GitHub Pages default domain vs custom domain).
 
 ## SHOULD HAVE (do soon after launch)
 
