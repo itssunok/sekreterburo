@@ -12,8 +12,6 @@ in parallel.
 
 - [ ] Redesign nav: floating pill bar inset from viewport edges, light
       --paper background; mobile drawer inverted to --ink.
-- [ ] Redesign About: dictionary photo, pull-quote styling for founder
-      quote, hairline-divider value list instead of boxed/bordered cards.
 - [ ] Restyle Services: pill-shaped tabs (interaction unchanged), hairline-
       top-border cards instead of full boxes, de-emphasized icons, B2B/C
       badges as pill outlines.
