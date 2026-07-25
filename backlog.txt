@@ -3,6 +3,42 @@ BACKLOG
 Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 · COULD = nice to have, no urgency.
 
+## IN PROGRESS — 2026 VISUAL REDESIGN (branch: redesign-2026)
+
+Full plan: docs/superpowers/specs/2026-07-25-visual-redesign-design.md.
+Styling/layout only — no copy, form behavior, tab/carousel mechanics, or
+URL structure changes. Must be applied to index.html and en/index.html
+in parallel.
+
+- [ ] Replace navy/gold CSS tokens with new palette: --paper #F5F1E9,
+      --paper-dim #ECE6D6, --ink #16140F, --stamp #B8452C, --sage #6E7458,
+      --taupe #8C8474.
+- [ ] Swap Google Fonts to Fraunces (display), Work Sans (body), JetBrains
+      Mono (utility/labels) — replaces Playfair Display + Inter.
+- [ ] Build the dictionary-entry eyebrow label style (mono, phonetic-style
+      bracket) used above every section heading.
+- [ ] Build the ink-stamp SVG graphic ("EST. 1980 · ANKARA", circular,
+      slightly rotated) for use in About (founder quote) and Confidentiality.
+- [ ] Prep the 3 chosen photos (flags, dictionary macro, globe): crop/resize
+      down from raw multi-MB Unsplash originals, compress, apply duotone
+      treatment (CSS filter preferred over pre-baked file).
+- [ ] Redesign nav: floating pill bar inset from viewport edges, light
+      --paper background; mobile drawer inverted to --ink.
+- [ ] Redesign hero: flags photo full-bleed rounded block; stat numbers
+      (40+/22+) as plain oversized numerals instead of boxed cards.
+- [ ] Redesign About: dictionary photo, pull-quote styling for founder
+      quote, hairline-divider value list instead of boxed/bordered cards.
+- [ ] Restyle Services: pill-shaped tabs (interaction unchanged), hairline-
+      top-border cards instead of full boxes, de-emphasized icons, B2B/C
+      badges as pill outlines.
+- [ ] Redesign Languages: switch section to dark (--ink) background, globe
+      photo as circular inset, carousel pills restyled as flat outlined chips.
+- [ ] Redesign Confidentiality: replace lock-emoji panel with the ink-stamp
+      graphic as centerpiece visual.
+- [ ] Restyle contact form inputs to underline-style (no box/radius);
+      submit button in --ink.
+- [ ] Restyle footer to new --ink/--paper tokens.
+
 ## MUST HAVE (launch blockers)
 
 - [ ] Contact form has no backend. It's a static site, so submissions currently
@@ -19,9 +55,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 - [ ] LocalBusiness JSON-LD schema is live but has no `sameAs` (Google
       Business Profile / Facebook / Instagram / LinkedIn URLs) — need to
       check with Sekreter Büro whether these exist before adding them.
-- [ ] The photo assets in /assets aren't used anywhere on the page yet — the
-      site is currently icon/emoji-only. Real photography (office, team,
-      documents) would help both trust and on-page content depth for SEO.
 - [ ] No analytics (Google Analytics / Plausible / GoatCounter) — no way to
       see traffic or which pages/languages visitors actually use post-launch.
 - [ ] No image alt text audit — once real images are added, alt attributes
@@ -29,9 +62,9 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 
 ## COULD HAVE (nice to have)
 
-- [ ] No performance pass yet (image compression/lazy-loading, font-display
-      strategy) — worth revisiting once real photography is added, since
-      that's what will actually affect load time.
+- [ ] No performance pass yet beyond the 3 redesign photos (which get their
+      own crop/compress step, see above): lazy-loading, font-display
+      strategy for the new Fraunces/Work Sans/JetBrains Mono fonts.
 - [ ] Custom domain www.sekreterburo.com is planned but not yet configured
       (site currently lives at the GitHub Pages default domain). Once it's
       live: point DNS/GitHub Pages custom domain settings at it, then update
