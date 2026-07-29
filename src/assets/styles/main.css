@@ -323,8 +323,8 @@
 
     /* ─── CONFIDENTIALITY ─── */
     #confidentiality { background: #EEE9E0; padding: 80px 48px; }
-    .conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .conf-points { display: flex; flex-direction: column; gap: 22px; margin-top: 30px; }
+    .conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .conf-points { display: flex; flex-direction: column; gap: 22px; margin-top: 38px; }
     .conf-pt { display: flex; gap: 16px; align-items: flex-start; }
     .conf-pt-icon {
       width: 48px; height: 48px; flex-shrink: 0;
@@ -333,31 +333,14 @@
     }
     .conf-pt-text h4 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
     .conf-pt-text p { font-size: 13.5px; color: var(--taupe); line-height: 1.65; }
-    .conf-panel {
-      background: var(--ink); border-radius: 20px;
-      padding: 48px; color: var(--white);
-    }
-    .conf-panel-icon { font-size: 58px; margin-bottom: 22px; line-height: 1; }
-    .conf-panel h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 24px; color: var(--white);
-      line-height: 1.3; margin-bottom: 14px;
-    }
-    .conf-panel p { color: rgba(255,255,255,0.65); font-size: 15px; line-height: 1.75; }
-    .conf-panel-badge {
-      display: flex; align-items: center; gap: 12px;
-      background: rgba(184,69,44,0.13);
-      border: 1px solid rgba(184,69,44,0.25);
-      border-radius: 9px; padding: 14px 18px; margin-top: 24px;
-    }
-    .conf-panel-badge span { color: var(--stamp); font-size: 14px; font-weight: 500; }
 
     /* ─── CONTACT ─── */
-    #contact { background: var(--white); padding: 96px 48px; }
-    .contact-heading { text-align: center; margin-bottom: 60px; }
+    #contact { background: var(--white); padding: 72px 48px; }
+    .contact-heading { text-align: center; margin-bottom: 48px; }
     .contact-heading .section-tag { justify-content: center; }
     .contact-heading .section-title { text-align: center; max-width: 520px; margin: 0 auto; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 72px; align-items: start; }
+    .contact-heading .section-sub { max-width: 640px; margin: 20px auto 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 72px; align-items: stretch; }
     .contact-items { display: flex; flex-direction: column; gap: 26px; }
     .contact-item { display: flex; gap: 16px; align-items: flex-start; }
     .ci-icon {
@@ -623,6 +606,7 @@
 
       /* Confidentiality */
       .conf-grid { grid-template-columns: 1fr; gap: 48px; }
+      .conf-points { margin-top: 0; }
 
       /* Contact */
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -689,10 +673,6 @@
       /* Contact form */
       .form-row { grid-template-columns: 1fr; }
       .contact-form-wrap { padding: 28px 20px; }
-
-      /* Confidentiality */
-      .conf-panel { padding: 32px 24px; }
-      .conf-panel-icon { font-size: 44px; }
 
       /* Footer: single column */
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
