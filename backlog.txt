@@ -20,11 +20,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 
 ## SHOULD HAVE (do soon after launch)
 
-- [ ] Confidentiality panel visual is still the plain lock emoji (🔒) —
-      the ink-stamp graphic was tried here and in About during the 2026
-      redesign but was rejected as not working (see
-      docs/superpowers/specs/2026-07-25-visual-redesign-design.md), so
-      this still needs a different treatment.
 - [ ] No Open Graph / Twitter Card meta tags — links shared on WhatsApp,
       LinkedIn, etc. won't show a title/description/image preview.
 - [ ] LocalBusiness JSON-LD schema is live but has no `sameAs` (Google
@@ -33,12 +28,6 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 
 ## COULD HAVE (nice to have)
 
-- [ ] Interactive pricing estimator for the Services section's pricing
-      note: ask the client for per-language pricing, then add a word-count
-      slider that estimates a price as the user drags it. Needs pricing
-      data from Sekreter Büro first — this is a real feature (form logic +
-      pricing model), not just a styling change, so brainstorm/scope it
-      properly before implementing.
 - [ ] Custom domain sekreterburo.com is planned but not yet configured.
       Once it's live: point DNS at Cloudflare Pages and add the custom
       domain in the Cloudflare Pages project settings, then update the
