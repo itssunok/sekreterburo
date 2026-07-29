@@ -5,11 +5,17 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
 
 ## MUST HAVE (launch blockers)
 
-- [ ] Contact form has no backend. It's a static site, so submissions currently
-      go nowhere (handleQuoteSubmit() in src/assets/js/main.js just shows a
-      message pointing users to email). Need to wire it to a real form service
-      (Formspree, Netlify Forms, or a custom endpoint) that also supports file
-      uploads, since the form now includes a document upload field.
+- [ ] Contact form backend is wired up (functions/api/quote.js, sends via
+      Resend: office notification + visitor auto-reply, file uploads
+      included) but not usable for real customers yet — Resend is still in
+      sandbox mode, which can only deliver to the account's own test address
+      (sun@sociablenerd.com), currently set as QUOTE_NOTIFY_EMAIL. To go
+      live: verify sekreterburo.com as a sending domain at
+      resend.com/domains (add the DNS records Resend generates at whichever
+      registrar manages the domain's DNS — not Cloudflare), then once
+      verified, update two Cloudflare Pages env vars: RESEND_FROM_EMAIL to
+      "Sekreter Büro <info@sekreterburo.com>" and QUOTE_NOTIFY_EMAIL to
+      info@sekreterburo.com. No code changes needed for that step.
 - [ ] No favicon — browser tabs and bookmarks show a blank/default icon.
 
 ## SHOULD HAVE (do soon after launch)
