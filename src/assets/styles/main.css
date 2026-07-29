@@ -186,7 +186,7 @@
     h2.section-title em { color: var(--stamp); font-style: normal; }
     .section-sub {
       font-size: 16px; color: var(--taupe);
-      line-height: 1.7; max-width: 540px;
+      line-height: 1.7; max-width: 600px;
     }
 
     /* ─── ABOUT ─── */
@@ -268,7 +268,7 @@
     .oral-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
     .oral-card {
       background: var(--white); border-radius: 14px;
-      padding: 26px; border: 1px solid var(--border);
+      padding: 28px; border: 1px solid var(--border);
       transition: all 0.22s;
     }
     .oral-card:hover { border-color: var(--ink); box-shadow: 0 4px 18px rgba(22,20,15,0.08); }
