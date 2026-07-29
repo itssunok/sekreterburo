@@ -557,17 +557,19 @@
       <!-- Right: form -->
       <div class="contact-form-wrap">
         <h3>
-          
+
           Quote Request Form
         </h3>
+        <form id="quote-form" novalidate>
+        <input type="hidden" name="lang" value="en">
         <div class="form-row">
           <div class="form-grp">
             <label>Full Name</label>
-            <input type="text" placeholder=" ">
+            <input type="text" name="full_name" placeholder=" " required>
           </div>
           <div class="form-grp">
             <label>Email</label>
-            <input type="email" placeholder=" ">
+            <input type="email" name="email" placeholder=" " required>
           </div>
         </div>
         <div class="form-row">
@@ -648,20 +650,18 @@
         </div>
         <div class="form-grp">
           <label>Your Message</label>
-          <textarea placeholder=" "></textarea>
+          <textarea name="message" placeholder=" " required></textarea>
         </div>
         <div class="form-grp">
           <label>Upload Documents</label>
-          <input type="file" class="file-input" multiple>
+          <input type="file" name="documents" class="file-input" multiple>
         </div>
-        <button class="form-submit" onclick="return handleQuoteSubmit(event)">
-          
+        <button type="submit" class="form-submit">
+
           Request a Quote &nbsp;→
         </button>
-        <!-- NOTE: this is a static site with no backend. handleQuoteSubmit() currently
-             only shows a confirmation message; wire it to a real form backend
-             (e.g. Formspree, Netlify Forms, or a custom endpoint) before launch,
-             since file uploads require server-side handling. -->
+        <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </div>

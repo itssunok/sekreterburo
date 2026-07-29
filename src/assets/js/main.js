@@ -31,18 +31,60 @@
   });
 
   /* ── Quote form submit ──
-     Placeholder only: this is a static site with no backend, so submissions
-     currently go nowhere. Wire this to a real form service (Formspree,
-     Netlify Forms, custom endpoint, etc.) that supports file uploads before
-     launch — do not remove this comment until that's done. */
-  function handleQuoteSubmit(e) {
-    e.preventDefault();
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'tr';
-    const msg = lang === 'en'
-      ? 'This form is not yet connected to a server. Please email your request and documents to info@sekreterburo.com.'
-      : 'Bu form henüz bir sunucuya bağlı değil. Lütfen talebinizi ve belgelerinizi info@sekreterburo.com adresine e-posta ile iletin.';
-    alert(msg);
-    return false;
+     Posts to the /api/quote Cloudflare Pages Function, which emails the
+     office and sends the visitor an auto-reply (see functions/api/quote.js). */
+  const QUOTE_MAX_UPLOAD_BYTES = 15 * 1024 * 1024; // keep total attachments well under Resend's request size limit
+
+  const QUOTE_TEXT = {
+    tr: {
+      sending: 'Gönderiliyor…',
+      success: 'Teşekkürler! Talebiniz alındı, en kısa sürede size dönüş yapacağız.',
+      tooLarge: 'Eklediğiniz belgeler çok büyük (15 MB üzeri). Lütfen daha küçük dosyalar yükleyin veya belgenizi e-posta ile gönderin.',
+      error: 'Bir şeyler ters gitti. Lütfen tekrar deneyin ya da talebinizi info@sekreterburo.com adresine e-posta ile iletin.',
+    },
+    en: {
+      sending: 'Sending…',
+      success: 'Thank you! Your request has been received — we’ll get back to you shortly.',
+      tooLarge: 'Your attached documents are too large (over 15 MB). Please upload smaller files or email your documents to us directly.',
+      error: 'Something went wrong. Please try again, or email your request to info@sekreterburo.com.',
+    },
+  };
+
+  const quoteForm = document.getElementById('quote-form');
+  if (quoteForm) {
+    quoteForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const lang = quoteForm.querySelector('[name="lang"]')?.value === 'en' ? 'en' : 'tr';
+      const t = QUOTE_TEXT[lang];
+      const submitBtn = quoteForm.querySelector('.form-submit');
+      const status = quoteForm.querySelector('.form-status');
+
+      const files = quoteForm.querySelector('[name="documents"]')?.files || [];
+      const totalBytes = Array.from(files).reduce((sum, f) => sum + f.size, 0);
+      if (totalBytes > QUOTE_MAX_UPLOAD_BYTES) {
+        status.textContent = t.tooLarge;
+        status.className = 'form-status is-error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      status.textContent = t.sending;
+      status.className = 'form-status';
+
+      try {
+        const res = await fetch('/api/quote', { method: 'POST', body: new FormData(quoteForm) });
+        if (!res.ok) throw new Error('request failed');
+        status.textContent = t.success;
+        status.className = 'form-status is-success';
+        quoteForm.reset();
+        quoteForm.querySelector('[name="lang"]').value = lang;
+      } catch (err) {
+        status.textContent = t.error;
+        status.className = 'form-status is-error';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
   }
 
   /* ── Footer copyright year ── */

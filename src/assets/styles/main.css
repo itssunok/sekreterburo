@@ -397,6 +397,12 @@
       margin-top: 6px;
     }
     .form-submit:hover { background: color-mix(in srgb, var(--ink) 82%, black); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-status {
+      font-size: 13.5px; line-height: 1.6; margin-top: 12px; min-height: 1px;
+    }
+    .form-status.is-success { color: var(--sage); }
+    .form-status.is-error { color: var(--stamp); }
 
     /* ─── FOOTER ─── */
     footer { background: var(--ink); padding: 56px 48px 28px; }
