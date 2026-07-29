@@ -122,6 +122,9 @@ export async function onRequestPost({ request, env }) {
       .map(([label, value]) => `<tr><td style="padding:4px 12px 4px 0;color:#8C8474;">${escapeHtml(label)}</td><td>${escapeHtml(value)}</td></tr>`)
       .join('');
 
+    // The office notification is the part that matters — if this fails, the
+    // request has genuinely failed and the visitor should be told to try
+    // again or email directly.
     await sendEmail(env.RESEND_API_KEY, {
       from: fromAddress,
       to: env.QUOTE_NOTIFY_EMAIL,
@@ -134,12 +137,20 @@ export async function onRequestPost({ request, env }) {
       attachments: attachments.length ? attachments : undefined,
     });
 
-    await sendEmail(env.RESEND_API_KEY, {
-      from: fromAddress,
-      to: email,
-      subject: t.replySubject,
-      html: t.replyBody(fullName),
-    });
+    // The visitor auto-reply is best-effort: a failure here (e.g. Resend's
+    // sandbox mode rejecting an unverified recipient before the sending
+    // domain is verified) shouldn't make a successful submission look like
+    // it failed.
+    try {
+      await sendEmail(env.RESEND_API_KEY, {
+        from: fromAddress,
+        to: email,
+        subject: t.replySubject,
+        html: t.replyBody(fullName),
+      });
+    } catch (err) {
+      console.error('Quote auto-reply failed:', err);
+    }
 
     return Response.json({ ok: true });
   } catch (err) {
