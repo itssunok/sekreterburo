@@ -34,9 +34,3 @@ Priority key: MUST = blocks a credible launch · SHOULD = do soon after launch
       canonical/hreflang URLs in index.html and en/index.html, plus
       sitemap.xml and robots.txt, from https://itssunok.github.io/sekreterburo/
       (and its /en/ variant) to the real domain.
-- [ ] README.md is stale in several places left over from before the 2026
-      redesign and bilingual split: "Sections" table describes the old
-      single-page layout (stat cards, trust bar, 4 value cards), "Languages"
-      still says client-side switcher (it's two static pages now), "Colors"
-      table lists the old navy/gold/cream palette instead of the current
-      paper/ink/stamp/sage/taupe tokens. Needs a rewrite pass.
